@@ -7,506 +7,216 @@
   <meta name="description" content="생일, 결혼, 기념일 등 소중한 날을 위한 맞춤 제작 노래 서비스. 당신의 이야기를 음표에 담아드립니다." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --mocha-deep:   #f0e0b0;
-      --mocha-dark:   #faf0d8;
-      --mocha-mid:    #fdf6e8;
-      --mocha-light:  #fffdf5;
-      --gold:         #9a6c18;
-      --gold-light:   #c8961e;
-      --gold-dim:     #b88828;
-      --rose:         #c05840;
-      --rose-light:   #e08060;
-      --cream:        #3a2808;
-      --cream-dim:    #6a4818;
-      --text-bright:  #3a2808;
-      --text-mid:     #7a5820;
-      --text-soft:    #b09050;
+      --bg:      #fff8f8;
+      --bg-soft: #fdf0f3;
+      --pink:    #d4547a;
+      --pink-s:  #e07898;
+      --pink-p:  rgba(212,84,122,.1);
+      --rose:    #b03060;
+      --blush:   #f9e4ea;
+      --brown:   #4a1828;
+      --brown-m: #7a3848;
+      --brown-s: #b07888;
+      --dark1:   #2e1a28;
+      --dark2:   #241020;
+      --gold:    #c8961e;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--brown); line-height:1.8; }
 
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background: var(--mocha-deep);
-      color: var(--text-bright);
-      line-height: 1.8;
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 12px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255,248,228,.98);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 2px solid rgba(154,108,24,.35);
-      box-shadow: 0 2px 12px rgba(100,60,10,.15);
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      padding:12px 40px;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(255,248,248,.97); backdrop-filter:blur(16px);
+      border-bottom:1.5px solid rgba(212,84,122,.15);
+      box-shadow:0 2px 14px rgba(212,84,122,.08);
     }
-
-    .nav-logo {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 1.05rem;
-      color: var(--cream);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .nav-logo span { color: var(--gold); }
-
-    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-links a { font-size: .88rem; color: #3a2808; font-weight: 600; text-decoration: none; transition: color .2s; letter-spacing: .04em; }
-    .nav-links a:not(.nav-cta):hover { color: #c05840; border-bottom: 2px solid #c05840; padding-bottom: 2px; }
-
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo img { height:46px; width:46px; border-radius:50%; object-fit:cover; border:2px solid rgba(212,84,122,.3); }
+    .nav-brand { font-family:'Noto Serif KR',serif; font-size:.98rem; font-weight:700; color:var(--brown); letter-spacing:.04em; }
+    .nav-brand em { color:var(--pink); font-style:normal; }
+    .nav-links { display:flex; gap:26px; list-style:none; align-items:center; }
+    .nav-links a { font-size:.87rem; color:var(--brown-m); font-weight:600; text-decoration:none; transition:color .2s; }
+    .nav-links a:not(.nav-cta):hover { color:var(--pink); }
     .nav-cta {
-      background: var(--rose) !important;
-      color: #fff !important;
-      padding: 8px 20px;
-      border-radius: 99px;
-      font-size: .85rem !important;
+      background:linear-gradient(135deg,var(--pink),var(--pink-s)) !important;
+      color:#fff !important; padding:9px 22px; border-radius:99px;
+      font-weight:700 !important; box-shadow:0 4px 16px rgba(212,84,122,.3);
+      transition:transform .2s,box-shadow .2s !important;
     }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: radial-gradient(ellipse at 70% 30%, rgba(220,180,80,.25) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 80%, rgba(200,150,60,.15) 0%, transparent 55%),
-                  var(--mocha-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px 60px;
-      overflow: hidden;
-    }
-
-    .note-deco {
-      font-size: 1.6rem;
-      letter-spacing: .3em;
-      margin-bottom: 24px;
-      color: var(--gold-dim);
-    }
-
-    .hero-eyebrow {
-      font-family: 'Noto Serif KR', serif;
-      font-size: clamp(.85rem, 1.8vw, 1rem);
-      color: var(--gold);
-      letter-spacing: .12em;
-      margin-bottom: 28px;
-      opacity: .85;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(201,169,110,.12);
-      border: 1px solid rgba(201,169,110,.3);
-      color: var(--gold);
-      font-size: .75rem;
-      letter-spacing: .18em;
-      padding: 6px 20px;
-      border-radius: 99px;
-      margin-bottom: 24px;
-      font-family: 'Noto Serif KR', serif;
-    }
-
-    .hero h1 {
-      font-family: 'Noto Serif KR', serif;
-      font-size: clamp(1.9rem, 5.5vw, 3.4rem);
-      font-weight: 600;
-      color: var(--cream);
-      line-height: 1.4;
-      margin-bottom: 22px;
-    }
-    .hero h1 span { color: var(--rose-light); }
-
-    .hero p {
-      font-size: clamp(.92rem, 2.2vw, 1.05rem);
-      color: var(--text-mid);
-      max-width: 520px;
-      margin: 0 auto 40px;
-      font-weight: 300;
-    }
-
-    .hero-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; }
-
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--rose) 0%, #c0647a 100%);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 16px 44px;
-      border-radius: 99px;
-      text-decoration: none;
-      box-shadow: 0 8px 28px rgba(212,120,138,.3);
-      transition: transform .2s, box-shadow .2s;
-      letter-spacing: .04em;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(212,120,138,.4);
-    }
-
-    .btn-secondary {
-      display: inline-block;
-      color: var(--gold);
-      font-size: .92rem;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,169,110,.4);
-      padding-bottom: 2px;
-      transition: border-color .2s;
-    }
-    .btn-secondary:hover { border-color: var(--gold); }
-
-    /* ── SECTION COMMON ── */
-    section { padding: 90px 24px; }
-    .container { max-width: 900px; margin: 0 auto; }
-
-    .section-label {
-      font-size: .72rem;
-      letter-spacing: .22em;
-      color: var(--gold-dim);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: 'Noto Serif KR', serif;
-      font-size: clamp(1.5rem, 4vw, 2.1rem);
-      font-weight: 600;
-      color: var(--cream);
-      margin-bottom: 14px;
-      line-height: 1.4;
-    }
-
-    .section-sub {
-      color: var(--text-mid);
-      font-size: .95rem;
-      font-weight: 300;
-      max-width: 540px;
-    }
-
-    /* ── HERO ILLUSTRATION ── */
-    .hero-illustration {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero > *:not(.hero-illustration) { position: relative; z-index: 1; }
-
-    /* ── SECTION FLORAL ── */
-    .section-floral {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .services, .steps, .pricing, .contact { position: relative; }
-    .services .container, .steps .container,
-    .pricing .container, .contact .container { position: relative; z-index: 1; }
-
-    /* ── DIVIDER ── */
-    .divider {
-      width: 48px; height: 1px;
-      background: linear-gradient(to right, var(--gold-dim), transparent);
-      margin: 18px 0 0;
-    }
-
-    /* ── SERVICES ── */
-    .services { background: #2e3a4e; }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    .service-card {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      padding: 30px 26px;
-      transition: transform .2s, box-shadow .2s, background .2s;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,.2);
-      background: rgba(255,255,255,.12);
-    }
-
-    .service-icon { font-size: 1.8rem; margin-bottom: 14px; }
-
-    .service-card h3 {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 1rem;
-      color: #f0f4f8;
-      margin-bottom: 8px;
-    }
-
-    .service-card p {
-      font-size: .87rem;
-      color: #90a8c0;
-      font-weight: 300;
-      line-height: 1.75;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .steps { background: #2a1a10; }
-
-    .step-list {
-      display: flex;
-      flex-direction: column;
-      margin-top: 48px;
-      position: relative;
-    }
-
-    .step-list::before {
-      content: '';
-      position: absolute;
-      left: 27px; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold-dim), transparent);
-    }
-
-    .step-item {
-      display: flex;
-      gap: 24px;
-      padding-bottom: 40px;
-      position: relative;
-    }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(201,169,110,.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Noto Serif KR', serif;
-      font-size: 1.1rem;
-      color: var(--gold);
-      font-weight: 600;
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-content h3 {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 1rem;
-      margin-bottom: 6px;
-      margin-top: 14px;
-      color: #f5efe6;
-    }
-    .step-content p { font-size: .88rem; color: #c4b09a; font-weight: 300; }
-
-    /* ── PRICING ── */
-    .pricing { background: var(--mocha-mid); }
-
-    .price-card {
-      background: #f0e0c0;
-      border: none;
-      border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 520px;
-      margin: 48px auto 0;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(154,108,24,.12);
-    }
-
-    .event-badge {
-      display: inline-block;
-      background: rgba(212,120,138,.18);
-      border: 1px solid rgba(212,120,138,.4);
-      color: var(--rose-light);
-      font-size: .75rem;
-      letter-spacing: .1em;
-      padding: 5px 16px;
-      border-radius: 99px;
-      margin-bottom: 18px;
-    }
-
-    .price-original {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      text-decoration: line-through;
-      margin-bottom: 4px;
-    }
-
-    .price-main {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 3.2rem;
-      color: var(--gold);
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .price-unit { font-size: .9rem; color: var(--text-mid); margin-bottom: 6px; }
-    .price-notice {
-      font-size: .8rem;
-      color: var(--rose-light);
-      margin-bottom: 28px;
-    }
-
-    .price-detail {
-      background: #e8c888;
-      border-radius: 14px;
-      padding: 20px 24px;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-    .price-detail p {
-      font-size: .88rem;
-      color: #3a2808;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(58,40,8,.1);
-    }
-    .price-detail p:last-child { border-bottom: none; }
-    .price-detail strong { color: #6a4010; font-weight: 600; }
-
-    .price-note { font-size: .8rem; color: var(--text-soft); margin-bottom: 32px; }
-
-    /* ── CONTACT ── */
-    .contact {
-      background: var(--mocha-deep);
-      text-align: center;
-      border-top: 1px solid rgba(201,169,110,.1);
-    }
-    .contact .section-sub { margin: 0 auto 40px; }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 26px;
-      border-radius: 99px;
-      font-size: .92rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform .2s, opacity .2s;
-    }
-    .contact-btn:hover { transform: translateY(-2px); opacity: .9; }
-
-    .contact-btn.youtube { background: #ff0000; color: #fff; }
-    .contact-btn.kakao   { background: #fee500; color: #3a1d1d; }
-
-    .account-info {
-      font-size: .83rem;
-      color: var(--text-soft);
-      margin-top: 28px;
-      line-height: 2.2;
-    }
-    .account-info a { color: var(--gold-dim); text-decoration: none; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #e8d098;
-      color: var(--text-soft);
-      text-align: center;
-      padding: 28px 24px;
-      font-size: .77rem;
-      line-height: 2;
-      border-top: 1px solid rgba(255,255,255,.04);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--gold);
-      border-radius: 2px;
-      transition: all .3s;
-    }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 22px rgba(212,84,122,.45) !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; background:none; border:none; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--pink); border-radius:2px; }
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #1a0b04;
-      z-index: 9999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
+      display:none; position:fixed; inset:0;
+      background:rgba(74,24,40,.97); z-index:9999;
+      flex-direction:column; align-items:center; justify-content:center; gap:36px;
     }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 1.5rem;
-      color: #faf0d8;
-      text-decoration: none;
-      letter-spacing: .12em;
-      border-bottom: 1px solid rgba(200,150,30,.2);
-      padding-bottom: 12px;
-      width: 200px;
-      text-align: center;
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-family:'Noto Serif KR',serif; font-size:1.5rem; color:#fdf0f3; text-decoration:none; letter-spacing:.1em; border-bottom:1px solid rgba(212,84,122,.2); padding-bottom:12px; width:200px; text-align:center; }
+    .mobile-menu a:last-of-type { border-bottom:none; }
+    .mobile-menu .close-btn { position:absolute; top:24px; right:28px; font-size:2rem; color:var(--pink-s); cursor:pointer; background:none; border:none; }
+    .mobile-menu .mob-cta { margin-top:4px; font-size:1rem; padding:14px 40px; background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; border-radius:50px; font-weight:700; border-bottom:none !important; }
+    @media(max-width:640px){ nav{padding:12px 20px;} .nav-links{display:none;} .hamburger{display:flex;} }
+
+    /* HERO */
+    .hero {
+      min-height:100vh;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(212,84,122,.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 5% 80%, rgba(240,180,200,.15) 0%, transparent 45%),
+        var(--bg);
+      display:flex; align-items:center; justify-content:center;
+      padding:120px 60px 80px; overflow:hidden;
     }
-    .mobile-menu a:last-of-type { border-bottom: none; }
-    .mobile-menu .close-btn {
-      position: absolute;
-      top: 24px; right: 28px;
-      font-size: 2rem;
-      color: #c8961e;
-      cursor: pointer;
-      background: none;
-      border: none;
-      line-height: 1;
+    .hero-inner { max-width:1000px; width:100%; display:flex; align-items:center; justify-content:space-between; gap:60px; }
+    .hero-visual { flex-shrink:0; width:360px; }
+    .hero-visual img { width:100%; border-radius:50%; box-shadow:0 20px 60px rgba(212,84,122,.3), 0 0 0 3px rgba(212,84,122,.15); animation:float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+    .hero-text { flex:1; }
+    .hero-tag {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--pink-p); border:1px solid rgba(212,84,122,.25);
+      color:var(--pink); font-size:.75rem; letter-spacing:.18em;
+      padding:7px 20px; border-radius:99px; margin-bottom:24px; font-weight:600;
     }
-    .mobile-menu .mobile-cta {
-      margin-top: 4px;
-      font-size: 1rem;
-      padding: 14px 40px;
-      background: #c8961e;
-      color: #1a0d04;
-      border-radius: 50px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      border-bottom: none !important;
+    .hero-tag::before { content:'♪'; color:var(--pink-s); }
+    .hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:600; line-height:1.45; margin-bottom:18px; color:var(--brown); }
+    .hero h1 span { color:var(--pink); }
+    .hero-desc { font-size:clamp(.88rem,1.6vw,1rem); color:var(--brown-m); max-width:460px; margin:0 0 28px; font-weight:300; line-height:1.9; }
+    .hero-moments { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+    .hero-moment-chip { background:#3d1a2e; border:2px solid transparent; border-radius:14px; padding:10px 18px; font-size:.82rem; color:#ffffff; font-family:'Noto Serif KR',serif; font-weight:600; display:inline-flex; flex-direction:column; align-items:center; gap:4px; cursor:default; transition:all .2s; }
+    .hero-moment-chip:hover { border-color:#f0b8d0; color:#f0b8d0; }
+
+    /* 히어로 샘플 미리보기 */
+    .hero-sample-label { font-size:.75rem; color:var(--brown-s); letter-spacing:.15em; margin-bottom:12px; font-family:'Noto Serif KR',serif; }
+    .hero-sample-row { display:flex; gap:12px; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch; }
+    .hero-sample-card {
+      display:flex; flex-shrink:0; align-items:center; gap:12px;
+      background:#f5e8ed; border:1px solid rgba(212,84,122,.25);
+      border-radius:14px; padding:10px 14px; text-decoration:none; width:210px;
+      transition:background .2s;
+    }
+    .hero-sample-card:hover { background:#f0d8e2; }
+    .hero-sample-thumb { position:relative; flex-shrink:0; width:66px; height:44px; border-radius:8px; overflow:hidden; }
+    .hero-sample-thumb img { width:100%; height:100%; object-fit:cover; }
+    .hero-sample-thumb .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.38); }
+    .hero-sample-info p:first-child { font-size:.66rem; color:var(--pink); letter-spacing:.06em; margin-bottom:4px; }
+    .hero-sample-info p:last-child { font-size:.82rem; color:var(--brown); font-family:'Noto Serif KR',serif; }
+
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+    .btn-primary { display:inline-block; background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; font-size:1rem; font-weight:700; padding:15px 40px; border-radius:99px; text-decoration:none; box-shadow:0 8px 28px rgba(212,84,122,.35); transition:transform .2s,box-shadow .2s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(212,84,122,.5); }
+    .btn-outline { display:inline-block; color:var(--brown-m); font-size:.93rem; text-decoration:none; border:1.5px solid rgba(74,24,40,.2); padding:14px 30px; border-radius:99px; transition:border-color .2s,color .2s; }
+    .btn-outline:hover { border-color:var(--pink); color:var(--pink); }
+
+    @media(max-width:768px){
+      .hero{padding:100px 24px 60px;}
+      .hero-inner{flex-direction:column; gap:32px; text-align:center;}
+      .hero-visual{width:220px;}
+      .hero-desc{margin:0 auto 28px;}
+      .hero-moments,.hero-actions{justify-content:center;}
+      .hero-sample-row{justify-content:center;}
     }
 
-    @media (max-width: 640px) {
-      nav { padding: 14px 20px; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .price-card { padding: 32px 20px; }
-      .step-list::before { left: 23px; }
+    /* STATS */
+    .stats { background:linear-gradient(135deg,var(--pink) 0%,var(--rose) 100%); padding:44px 24px; }
+    .stats-grid { max-width:800px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; }
+    .stat-item { flex:1; min-width:130px; text-align:center; padding:12px 18px; border-right:1px solid rgba(255,255,255,.2); }
+    .stat-item:last-child { border-right:none; }
+    .stat-num { font-family:'Noto Serif KR',serif; font-size:1.8rem; font-weight:600; color:#fff; }
+    .stat-label { font-size:.73rem; color:rgba(255,255,255,.75); letter-spacing:.1em; margin-top:4px; }
+    @media(max-width:640px){ .stat-item{border-right:none; border-bottom:1px solid rgba(255,255,255,.15);} }
+
+    /* COMMON */
+    .container { max-width:900px; margin:0 auto; }
+    .section-label { font-size:.72rem; letter-spacing:.22em; font-weight:600; text-transform:uppercase; margin-bottom:10px; }
+    .section-title { font-family:'Noto Serif KR',serif; font-size:clamp(1.5rem,3.5vw,2.1rem); font-weight:600; margin-bottom:12px; line-height:1.4; }
+    .section-sub { font-size:.93rem; font-weight:300; max-width:520px; }
+    .divider { width:48px; height:1px; margin:18px 0 0; }
+
+    /* SERVICES — 다크 로즈 */
+    .services { background:var(--dark1); padding:90px 24px; position:relative; overflow:hidden; }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:48px; }
+    .service-card { background:rgba(255,255,255,.07); border:1px solid rgba(212,84,122,.2); border-radius:18px; padding:30px 26px; transition:transform .2s,box-shadow .2s,background .2s; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(212,84,122,.2); background:rgba(255,255,255,.12); }
+    .service-icon { font-size:1.8rem; margin-bottom:14px; }
+    .service-card h3 { font-family:'Noto Serif KR',serif; font-size:1rem; color:#f5e8ed; margin-bottom:8px; }
+    .service-card p { font-size:.87rem; color:#c0a0b0; font-weight:300; line-height:1.75; }
+    @media(max-width:600px){
+      .service-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
+      .service-card { padding:18px 14px; border-radius:14px; }
+      .service-icon { font-size:1.4rem; margin-bottom:8px; }
+      .service-card h3 { font-size:.88rem; }
+      .service-card p { font-size:.78rem; line-height:1.6; }
     }
+
+    /* STEPS — 다크 딥로즈 */
+    .steps { background:var(--dark2); padding:90px 24px; position:relative; overflow:hidden; }
+    .step-list { display:flex; flex-direction:column; margin-top:48px; position:relative; max-width:640px; }
+    .step-list::before { content:''; position:absolute; left:27px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--pink),transparent); }
+    .step-item { display:flex; gap:24px; padding-bottom:36px; }
+    .step-num { flex-shrink:0; width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,.07); border:1px solid rgba(212,84,122,.45); display:flex; align-items:center; justify-content:center; font-family:'Noto Serif KR',serif; font-size:1.1rem; color:var(--pink-s); font-weight:600; position:relative; z-index:1; }
+    .step-content h3 { font-family:'Noto Serif KR',serif; font-size:1rem; color:#f5e8ed; margin-bottom:5px; margin-top:12px; }
+    .step-content p { font-size:.87rem; color:#c0a0b0; font-weight:300; line-height:1.75; }
+
+    /* SAMPLE — 다크 배경 */
+    .sample { background:var(--dark2); padding:90px 24px; text-align:center; }
+    .sample-tabs { display:inline-flex; gap:10px; margin-bottom:36px; }
+    .tab-btn { padding:10px 24px; font-family:'Noto Sans KR',sans-serif; font-size:.88rem; cursor:pointer; border:2px solid transparent; background:#3d1a2e; color:#ffffff; border-radius:14px; font-weight:600; letter-spacing:.05em; transition:all .2s; }
+    .tab-btn.active { border-color:#f0b8d0; color:#f0b8d0; }
+    .sample-video-wrap { max-width:680px; margin:0 auto 20px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+    .sample-ratio { position:relative; padding-bottom:56.25%; height:0; }
+    .sample-ratio iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+    .sample-title { font-size:.9rem; color:var(--pink-s); margin-bottom:8px; }
+    .sample-desc { font-size:.85rem; color:#c0a0b0; max-width:560px; margin:0 auto; line-height:1.8; }
+
+    /* PRICING */
+    .pricing { background:var(--dark1); padding:90px 24px; text-align:center; position:relative; overflow:hidden; }
+    .pricing .section-title { color:#f5e8ed; }
+    .pricing .section-sub { color:#c0a0b0; }
+    .price-card { background:rgba(255,255,255,.07); border:1.5px solid rgba(212,84,122,.3); border-radius:26px; padding:48px 36px; max-width:500px; margin:48px auto 0; position:relative; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.3); }
+    .price-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pink),var(--pink-s)); }
+    .event-badge { display:inline-block; background:rgba(212,84,122,.2); border:1px solid rgba(212,84,122,.4); color:var(--pink-s); font-size:.72rem; letter-spacing:.12em; padding:5px 16px; border-radius:99px; margin-bottom:16px; font-weight:700; }
+    .price-original { font-size:1.1rem; color:#8a6070; text-decoration:line-through; margin-bottom:4px; }
+    .price-main { font-family:'Noto Serif KR',serif; font-size:3rem; color:var(--pink-s); font-weight:600; line-height:1; margin-bottom:4px; }
+    .price-unit { font-size:.9rem; color:#c0a0b0; margin-bottom:6px; }
+    .price-notice { font-size:.8rem; color:#c0a0b0; margin-bottom:24px; }
+    .price-detail { background:rgba(0,0,0,.2); border-radius:14px; padding:18px 22px; text-align:left; margin-bottom:20px; }
+    .price-detail p { font-size:.88rem; color:#d4b0c0; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .price-detail p:last-child { border-bottom:none; }
+    .price-detail strong { color:var(--pink-s); font-weight:600; }
+    .price-note { font-size:.8rem; color:#8a6070; margin-bottom:28px; }
+
+    /* CONTACT */
+    .contact { background:var(--dark2); padding:90px 24px; text-align:center; position:relative; overflow:hidden; border-top:1px solid rgba(212,84,122,.15); }
+    .contact .section-title { color:#f5e8ed; }
+    .contact .section-sub { color:#c0a0b0; }
+    .contact-links { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:32px 0; }
+    .contact-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:99px; font-size:.92rem; text-decoration:none; font-weight:600; transition:transform .2s,box-shadow .2s; }
+    .contact-btn:hover { transform:translateY(-2px); }
+    .contact-btn.form { background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; box-shadow:0 4px 16px rgba(212,84,122,.3); }
+    .contact-btn.youtube { background:#ff0000; color:#fff; }
+    .contact-btn.kakao { background:#FAE100; color:#3C1E1E; }
+    .account-info { font-size:.83rem; color:#8a6070; margin-top:20px; line-height:2.2; }
+
+    /* SECTION FLORAL */
+    .section-floral { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+    .services .container, .steps .container, .pricing .container, .contact .container, .sample .container { position:relative; z-index:1; }
+
+    footer { background:var(--brown); color:rgba(253,240,243,.4); text-align:center; padding:28px 24px; font-size:.77rem; line-height:2; }
+    footer a { color:rgba(212,84,122,.7); text-decoration:none; }
+    footer a:hover { color:var(--pink-s); }
   </style>
 </head>
 <body>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="close-btn" onclick="closeMobileMenu()">✕</button>
     <a href="#services" onclick="closeMobileMenu()">서비스</a>
@@ -514,14 +224,13 @@
     <a href="#sample" onclick="closeMobileMenu()">샘플송</a>
     <a href="#pricing" onclick="closeMobileMenu()">가격</a>
     <a href="#contact" onclick="closeMobileMenu()">문의</a>
-    <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="mobile-cta" onclick="closeMobileMenu()">✉ 신청하기</a>
+    <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="mob-cta" onclick="closeMobileMenu()">✉ 신청하기</a>
   </div>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-      <img src="logo.jpg" alt="블레송포유 로고" style="height:52px; width:52px; border-radius:50%; object-fit:cover; border:1.5px solid #c8961e;">
-      <span style="font-family:'Noto Serif KR',serif; font-size:1rem; font-weight:700; color:#3a2808; letter-spacing:.05em; line-height:1.2;">블레송포유</span>
+    <a href="#" class="nav-logo">
+      <img src="logo.jpg" alt="블레송포유 로고" />
+      <span class="nav-brand">블레<em>송</em>포유</span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">서비스</a></li>
@@ -531,493 +240,312 @@
       <li><a href="#contact">문의</a></li>
       <li><a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="nav-cta">신청하기</a></li>
     </ul>
-    <button class="hamburger" onclick="openMobileMenu()" aria-label="메뉴 열기">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" onclick="openMobileMenu()"><span></span><span></span><span></span></button>
   </nav>
-
   <script>
-    function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+    function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); }
+    function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); }
   </script>
 
   <!-- HERO -->
   <section class="hero">
-
-    <!-- 오선지 흐름 일러스트 -->
-    <svg class="hero-illustration" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 큰 음자리표 워터마크 (우측) -->
-      <text x="880" y="580" font-size="480" fill="#9a6c18" opacity="0.06" font-family="serif">𝄞</text>
-
-      <!-- 오선지 흐름 1 (상단) -->
-      <g opacity="0.18" stroke="#9a6c18" stroke-width="1.2" fill="none">
-        <path d="M-20,120 Q180,95 380,130 Q580,165 780,125 Q950,90 1220,115"/>
-        <path d="M-20,138 Q180,113 380,148 Q580,183 780,143 Q950,108 1220,133"/>
-        <path d="M-20,156 Q180,131 380,166 Q580,201 780,161 Q950,126 1220,151"/>
-        <path d="M-20,174 Q180,149 380,184 Q580,219 780,179 Q950,144 1220,169"/>
-        <path d="M-20,192 Q180,167 380,202 Q580,237 780,197 Q950,162 1220,187"/>
+    <!-- 음자리표 + 오선지 워터마크 -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <text x="820" y="580" font-size="480" fill="var(--pink)" opacity="0.04" font-family="serif">𝄞</text>
+      <g opacity="0.12" stroke="var(--pink)" stroke-width="1.1" fill="none">
+        <path d="M-20,130 Q180,108 380,142 Q580,178 780,138 Q950,103 1220,128"/>
+        <path d="M-20,148 Q180,126 380,160 Q580,196 780,156 Q950,121 1220,146"/>
+        <path d="M-20,166 Q180,144 380,178 Q580,214 780,174 Q950,139 1220,164"/>
+        <path d="M-20,184 Q180,162 380,196 Q580,232 780,192 Q950,157 1220,182"/>
+        <path d="M-20,202 Q180,180 380,214 Q580,250 780,210 Q950,175 1220,200"/>
       </g>
-
-      <!-- 오선지 흐름 2 (하단) -->
-      <g opacity="0.1" stroke="#b88828" stroke-width="1" fill="none">
-        <path d="M-20,480 Q200,460 420,490 Q640,520 840,485 Q1020,455 1220,475"/>
-        <path d="M-20,496 Q200,476 420,506 Q640,536 840,501 Q1020,471 1220,491"/>
-        <path d="M-20,512 Q200,492 420,522 Q640,552 840,517 Q1020,487 1220,507"/>
-        <path d="M-20,528 Q200,508 420,538 Q640,568 840,533 Q1020,503 1220,523"/>
-        <path d="M-20,544 Q200,524 420,554 Q640,584 840,549 Q1020,519 1220,539"/>
+      <g opacity="0.07" stroke="rgba(212,84,122,.6)" stroke-width="0.9" fill="none">
+        <path d="M-20,490 Q200,472 420,502 Q640,532 840,497 Q1020,467 1220,487"/>
+        <path d="M-20,506 Q200,488 420,518 Q640,548 840,513 Q1020,483 1220,503"/>
+        <path d="M-20,522 Q200,504 420,534 Q640,564 840,529 Q1020,499 1220,519"/>
+        <path d="M-20,538 Q200,520 420,550 Q640,580 840,545 Q1020,515 1220,535"/>
+        <path d="M-20,554 Q200,536 420,566 Q640,596 840,561 Q1020,531 1220,551"/>
       </g>
-
-      <!-- 오선지 흐름 3 (중간 대각선) -->
-      <g opacity="0.09" stroke="#9a6c18" stroke-width="0.8" fill="none">
-        <path d="M-20,320 Q300,290 600,340 Q850,385 1220,355"/>
-        <path d="M-20,334 Q300,304 600,354 Q850,399 1220,369"/>
-        <path d="M-20,348 Q300,318 600,368 Q850,413 1220,383"/>
-        <path d="M-20,362 Q300,332 600,382 Q850,427 1220,397"/>
-        <path d="M-20,376 Q300,346 600,396 Q850,441 1220,411"/>
+      <g fill="rgba(212,84,122,.18)" font-size="30" font-family="serif">
+        <text x="65"  y="116">♩</text><text x="180" y="134">♪</text>
+        <text x="310" y="120">♫</text><text x="480" y="148">♬</text>
+        <text x="600" y="118">♩</text><text x="720" y="140">♪</text>
+        <text x="880" y="112">♫</text><text x="1050" y="130">♬</text>
       </g>
-
-      <!-- 음표들 — 상단 오선지 위 -->
-      <text x="60"  y="108" font-size="36" fill="#9a6c18" opacity="0.45" font-family="serif">♩</text>
-      <text x="160" y="125" font-size="22" fill="#9a6c18" opacity="0.32" font-family="serif">♪</text>
-      <text x="280" y="112" font-size="42" fill="#9a6c18" opacity="0.4"  font-family="serif">♫</text>
-      <text x="430" y="138" font-size="26" fill="#9a6c18" opacity="0.28" font-family="serif">♬</text>
-      <text x="570" y="108" font-size="20" fill="#9a6c18" opacity="0.38" font-family="serif">♩</text>
-      <text x="680" y="130" font-size="34" fill="#9a6c18" opacity="0.3"  font-family="serif">♪</text>
-      <text x="820" y="105" font-size="18" fill="#9a6c18" opacity="0.25" font-family="serif">♫</text>
-      <text x="980" y="122" font-size="28" fill="#9a6c18" opacity="0.32" font-family="serif">♬</text>
-      <text x="1100" y="108" font-size="16" fill="#9a6c18" opacity="0.22" font-family="serif">♩</text>
-
-      <!-- 음표들 — 하단 오선지 위 -->
-      <text x="40"  y="466" font-size="20" fill="#b88828" opacity="0.25" font-family="serif">♬</text>
-      <text x="220" y="472" font-size="16" fill="#b88828" opacity="0.18" font-family="serif">♩</text>
-      <text x="500" y="468" font-size="24" fill="#b88828" opacity="0.2"  font-family="serif">♪</text>
-      <text x="750" y="472" font-size="18" fill="#9a6c18" opacity="0.22" font-family="serif">♫</text>
-      <text x="1050" y="462" font-size="22" fill="#b88828" opacity="0.18" font-family="serif">♬</text>
-
-      <!-- 떠다니는 작은 음표들 (배경) -->
-      <text x="130" y="400" font-size="14" fill="#9a6c18" opacity="0.14" font-family="serif">♩</text>
-      <text x="750" y="280" font-size="12" fill="#9a6c18" opacity="0.12" font-family="serif">♪</text>
-      <text x="350" y="600" font-size="16" fill="#b88828" opacity="0.1"  font-family="serif">♫</text>
-      <text x="1100" y="350" font-size="14" fill="#9a6c18" opacity="0.12" font-family="serif">♬</text>
-      <text x="50"  y="620" font-size="12" fill="#b88828" opacity="0.08" font-family="serif">♩</text>
     </svg>
-
-    <div class="note-deco">♩ ♪ ♫ ♬</div>
-    <div class="hero-eyebrow">모든 순간이 선율이 되는 곳, blessong4u</div>
-    <h1>오래 간직하고 싶은 날의 기억을<br /><span>노래</span>에 담아 드립니다<br /><small style="font-size:clamp(.9rem,2vw,1.2rem); font-weight:400; letter-spacing:.1em; color:var(--gold); opacity:.9;">'블레송포유 Blessong4u'</small></h1>
-    <p style="max-width:560px; margin:0 auto 16px; font-size:clamp(.9rem,2vw,1.05rem);">
-      세상에 단 하나뿐인 노래로 당신의 소중한 날을<br />축복하며 빛나게 하는 blessong4u입니다.
-    </p>
-
-    <!-- 세 가지 순간 -->
-    <div style="display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin:24px 0 36px; opacity:.75;">
-      <span style="font-family:'Noto Serif KR',serif; font-size:.88rem; color:var(--gold); letter-spacing:.05em;">🎂 생일</span>
-      <span style="color:var(--gold-dim); font-size:.7rem; margin-top:2px;">·</span>
-      <span style="font-family:'Noto Serif KR',serif; font-size:.88rem; color:var(--gold); letter-spacing:.05em;">💍 결혼식</span>
-      <span style="color:var(--gold-dim); font-size:.7rem; margin-top:2px;">·</span>
-      <span style="font-family:'Noto Serif KR',serif; font-size:.88rem; color:var(--gold); letter-spacing:.05em;">👩‍❤️‍👨 첫 만남</span>
-      <span style="color:var(--gold-dim); font-size:.7rem; margin-top:2px;">·</span>
-      <span style="font-family:'Noto Serif KR',serif; font-size:.88rem; color:var(--gold); letter-spacing:.05em;">그 모든 순간</span>
-    </div>
-
-    <div class="hero-actions">
-      <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary">✉ 지금 신청하기</a>
-      <a href="#services" class="btn-secondary">서비스 보기 ↓</a>
-    </div>
-
-    <p style="margin-top:32px; font-size:.8rem; color:var(--text-soft); letter-spacing:.08em; font-family:'Noto Serif KR',serif;">
-      당신의 마음을 음표에 담아 사랑하는 이에게 전달해 보세요
-    </p>
-
-    <!-- 샘플송 미리보기 -->
-    <div style="margin-top:44px;">
-      <p style="font-size:.78rem; color:#8a6530; letter-spacing:.2em; margin-bottom:16px; font-family:'Noto Serif KR',serif;">▶ 샘플송 미리듣기</p>
-      <!-- 가로 스크롤: 샘플 추가될수록 오른쪽으로 늘어남 -->
-      <div style="display:flex; gap:14px; justify-content:center; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch;">
-        <a href="#sample" onclick="setTimeout(()=>showSample('anniversary'),100)"
-          style="display:flex; flex-shrink:0; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; width:220px; transition:background .2s;"
-          onmouseover="this.style.background='#52300f'" onmouseout="this.style.background='#3d2310'">
-          <div style="position:relative; flex-shrink:0; width:70px; height:46px; border-radius:8px; overflow:hidden;">
-            <img src="https://img.youtube.com/vi/5oFkdb_81N0/mqdefault.jpg" alt="결혼기념송" style="width:100%; height:100%; object-fit:cover;">
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+    <div class="hero-inner" style="position:relative;z-index:1;">
+      <div class="hero-visual">
+        <img src="profile.png" alt="블레송포유" />
+      </div>
+      <div class="hero-text">
+        <div class="hero-tag">세상에 단 하나뿐인 노래</div>
+        <h1>소중한 날의 기억을<br><span>노래</span>에 담아<br>드립니다</h1>
+        <p class="hero-desc">당신의 이야기를, 사랑하는 사람에게 전하는<br>세상에 단 하나뿐인 맞춤 노래를 만들어 드립니다.</p>
+        <div class="hero-moments">
+          <span class="hero-moment-chip">🎂 생일</span>
+          <span class="hero-moment-chip">💍 결혼식·프로포즈</span>
+          <span class="hero-moment-chip">👨‍👩‍👧 부모님 기념일</span>
+          <span class="hero-moment-chip">❤️ 그 모든 순간</span>
+        </div>
+        <p class="hero-sample-label">▶ 샘플송 미리듣기</p>
+        <div class="hero-sample-row">
+          <a href="#sample" onclick="setTimeout(()=>showSample('anniversary'),100)" class="hero-sample-card">
+            <div class="hero-sample-thumb">
+              <img src="https://img.youtube.com/vi/5oFkdb_81N0/mqdefault.jpg" alt="결혼기념송" />
+              <div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
             </div>
-          </div>
-          <div style="text-align:left;">
-            <p style="font-size:.68rem; color:#c8961e; letter-spacing:.06em; margin-bottom:4px;">💍 결혼기념송 샘플</p>
-            <p style="font-size:.83rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">승선하다</p>
-          </div>
-        </a>
-
-        <a href="#sample" onclick="setTimeout(()=>showSample('birthday'),100)"
-          style="display:flex; flex-shrink:0; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; width:220px; transition:background .2s;"
-          onmouseover="this.style.background='#52300f'" onmouseout="this.style.background='#3d2310'">
-          <div style="position:relative; flex-shrink:0; width:70px; height:46px; border-radius:8px; overflow:hidden;">
-            <img src="https://img.youtube.com/vi/M9zEatuMx08/mqdefault.jpg" alt="생일축복송" style="width:100%; height:100%; object-fit:cover;">
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            <div class="hero-sample-info">
+              <p>💍 결혼기념송 샘플</p>
+              <p>승선하다</p>
             </div>
-          </div>
-          <div style="text-align:left;">
-            <p style="font-size:.68rem; color:#c8961e; letter-spacing:.06em; margin-bottom:4px;">🎂 생일축복송 샘플 (편집본)</p>
-            <p style="font-size:.83rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">생일 축복송</p>
-          </div>
-        </a>
+          </a>
+          <a href="#sample" onclick="setTimeout(()=>showSample('birthday'),100)" class="hero-sample-card">
+            <div class="hero-sample-thumb">
+              <img src="https://img.youtube.com/vi/M9zEatuMx08/mqdefault.jpg" alt="생일축복송" />
+              <div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="hero-sample-info">
+              <p>🎂 생일축복송 (편집본)</p>
+              <p>생일 축복송</p>
+            </div>
+          </a>
+        </div>
+        <div class="hero-actions">
+          <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary">✉ 지금 신청하기</a>
+          <a href="#sample" class="btn-outline">샘플 듣기 ↓</a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">5~7일</div><div class="stat-label">제작 기간</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">맞춤 제작</div></div>
+      <div class="stat-item"><div class="stat-num">무제한</div><div class="stat-label">소장·공유 가능</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">저작권 고객 귀속</div></div>
+    </div>
+  </div>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <!-- 벚꽃 가지 (우측 상단 + 좌측 하단) -->
-    <svg class="section-floral" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 우측 상단 가지 -->
-      <g opacity="0.18" stroke="#8ab4d4" fill="none">
-        <path d="M1200,0 Q1050,80 920,160 Q820,220 780,300" stroke-width="1.5"/>
-        <path d="M920,160 Q960,120 1000,90" stroke-width="1"/>
-        <path d="M860,200 Q900,170 930,140" stroke-width="1"/>
-        <path d="M820,240 Q870,200 900,175" stroke-width="0.8"/>
+    <svg class="section-floral" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <!-- 우측 상단 벚꽃 가지 -->
+      <g opacity="0.32" stroke="#e8a0b8" fill="none">
+        <path d="M420,0 Q340,60 280,130 Q230,190 210,270" stroke-width="1.8"/>
+        <path d="M280,130 Q310,95 350,70" stroke-width="1.2"/>
+        <path d="M250,165 Q285,135 315,110" stroke-width="1"/>
+        <path d="M225,210 Q265,178 295,155" stroke-width="0.9"/>
       </g>
-      <!-- 우측 상단 꽃들 -->
-      <g opacity="0.22" fill="none" stroke="#a8cce0">
-        <g transform="translate(1000,88)"><ellipse rx="7" ry="14" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(288)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
-        <g transform="translate(930,138)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(1060,50)"><ellipse rx="5" ry="10" transform="rotate(30)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(102)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(174)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(246)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(318)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
-        <g transform="translate(870,195)"><ellipse rx="5" ry="11" transform="rotate(20)" stroke-width="0.7"/><ellipse rx="5" ry="11" transform="rotate(92)" stroke-width="0.7"/><ellipse rx="5" ry="11" transform="rotate(164)" stroke-width="0.7"/><ellipse rx="5" ry="11" transform="rotate(236)" stroke-width="0.7"/><ellipse rx="5" ry="11" transform="rotate(308)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
+      <g opacity="0.36" fill="none" stroke="#f0b0c8">
+        <g transform="translate(348,68)"><ellipse rx="7" ry="14" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(288)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
+        <g transform="translate(312,108)"><ellipse rx="6" ry="12" transform="rotate(20)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(92)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(164)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(236)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(308)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
+        <g transform="translate(290,152)"><ellipse rx="5" ry="10" transform="rotate(10)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(82)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(154)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(226)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(298)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
       </g>
-      <!-- 좌측 하단 가지 -->
-      <g opacity="0.14" stroke="#8ab4d4" fill="none">
-        <path d="M0,600 Q100,500 200,420 Q280,360 340,280" stroke-width="1.5"/>
-        <path d="M200,420 Q160,380 130,340" stroke-width="1"/>
-        <path d="M260,380 Q220,350 190,310" stroke-width="0.8"/>
+      <!-- 좌측 하단 벚꽃 가지 -->
+      <g opacity="0.26" stroke="#e8a0b8" fill="none">
+        <path d="M-20,620 Q60,530 130,450 Q190,380 210,300" stroke-width="1.8"/>
+        <path d="M130,450 Q95,415 70,370" stroke-width="1.2"/>
+        <path d="M170,410 Q130,375 105,330" stroke-width="1"/>
       </g>
-      <g opacity="0.18" fill="none" stroke="#a8cce0">
-        <g transform="translate(130,342)"><ellipse rx="6" ry="12" transform="rotate(15)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(87)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(159)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(231)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(303)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(195,312)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
+      <g opacity="0.3" fill="none" stroke="#f0b0c8">
+        <g transform="translate(68,368)"><ellipse rx="6" ry="12" transform="rotate(15)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(87)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(159)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(231)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(303)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
+        <g transform="translate(105,328)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
       </g>
-      <!-- 흩날리는 꽃잎들 -->
-      <g opacity="0.12" fill="#a8cce0">
-        <ellipse cx="750" cy="80" rx="5" ry="3" transform="rotate(25,750,80)"/>
-        <ellipse cx="600" cy="150" rx="4" ry="2.5" transform="rotate(-15,600,150)"/>
-        <ellipse cx="450" cy="50" rx="3.5" ry="2" transform="rotate(40,450,50)"/>
-        <ellipse cx="1100" cy="300" rx="4" ry="2.5" transform="rotate(-30,1100,300)"/>
-        <ellipse cx="300" cy="500" rx="5" ry="3" transform="rotate(10,300,500)"/>
-        <ellipse cx="700" cy="520" rx="3.5" ry="2" transform="rotate(50,700,520)"/>
-        <ellipse cx="150" cy="200" rx="4" ry="2.5" transform="rotate(-20,150,200)"/>
+      <!-- 흩날리는 꽃잎 -->
+      <g opacity="0.22" fill="#f0b0c8">
+        <ellipse cx="200" cy="80" rx="5" ry="3" transform="rotate(25,200,80)"/>
+        <ellipse cx="150" cy="200" rx="4" ry="2.5" transform="rotate(-15,150,200)"/>
+        <ellipse cx="260" cy="320" rx="3.5" ry="2" transform="rotate(40,260,320)"/>
+        <ellipse cx="80" cy="480" rx="5" ry="3" transform="rotate(10,80,480)"/>
+        <ellipse cx="320" cy="420" rx="3.5" ry="2" transform="rotate(50,320,420)"/>
       </g>
     </svg>
     <div class="container">
-      <div class="section-label" style="color:#c9a96e;">Our Services</div>
-      <h2 class="section-title" style="color:#f0f4f8;">마음을 담은 맞춤 노래</h2>
-      <p class="section-sub" style="color:#90a8c0;">어떤 순간이든, 어떤 마음이든 — 당신의 이야기를 선율로 만들어 드립니다.</p>
-      <div class="divider" style="background:linear-gradient(to right, #c9a96e, transparent);"></div>
-
+      <div class="section-label" style="color:#e8a0b8;">Our Services</div>
+      <h2 class="section-title" style="color:#f5e8ed;">마음을 담은 맞춤 노래</h2>
+      <p class="section-sub" style="color:#c0a0b0;">어떤 순간이든, 어떤 마음이든 — 당신의 이야기를 선율로 만들어 드립니다.</p>
+      <div class="divider" style="background:linear-gradient(to right,var(--pink),transparent);"></div>
       <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon">💖</div>
-          <h3>사랑의 고백송</h3>
-          <p>말로는 다 담지 못한 진심을 노래로 전하세요. 연인을 위한 세상에 하나뿐인 고백.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💍</div>
-          <h3>프로포즈송</h3>
-          <p>영원을 약속하는 가장 특별한 순간을 더욱 빛나게 해줄 설레는 노래.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎈</div>
-          <h3>생일 축하송</h3>
-          <p>소중한 사람의 생일을 평생 기억할 노래로 축복해 드립니다.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💐</div>
-          <h3>부모님 헌정곡</h3>
-          <p>환갑, 칠순, 팔순 — 부모님의 헌신과 사랑에 감사를 담은 특별한 선물.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👰</div>
-          <h3>결혼 축가</h3>
-          <p>두 사람의 새로운 출발을 축복하는 세상에 단 하나뿐인 감동의 노래.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">✨</div>
-          <h3>스토리 블레송</h3>
-          <p>졸업, 퇴직, 기념일 등 당신만의 모든 특별한 순간을 기념하는 맞춤 노래.</p>
-        </div>
+        <div class="service-card"><div class="service-icon">💖</div><h3>사랑의 고백송</h3><p>말로는 다 담지 못한 진심을 노래로 전하세요. 연인을 위한 세상에 하나뿐인 고백.</p></div>
+        <div class="service-card"><div class="service-icon">💍</div><h3>프로포즈송</h3><p>영원을 약속하는 가장 특별한 순간을 더욱 빛나게 해줄 설레는 노래.</p></div>
+        <div class="service-card"><div class="service-icon">🎈</div><h3>생일 축하송</h3><p>소중한 사람의 생일을 평생 기억할 노래로 축복해 드립니다.</p></div>
+        <div class="service-card"><div class="service-icon">💐</div><h3>부모님 헌정곡</h3><p>환갑, 칠순, 팔순 — 부모님의 헌신과 사랑에 감사를 담은 특별한 선물.</p></div>
+        <div class="service-card"><div class="service-icon">👰</div><h3>결혼 축가</h3><p>두 사람의 새로운 출발을 축복하는 세상에 단 하나뿐인 감동의 노래.</p></div>
+        <div class="service-card"><div class="service-icon">✨</div><h3>스토리 블레송</h3><p>졸업, 퇴직, 기념일 등 당신만의 모든 특별한 순간을 기념하는 맞춤 노래.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- STEPS -->
   <section class="steps" id="how">
-    <!-- 장미 가지 (좌측 상단 + 우측 하단, 골드톤) -->
-    <svg class="section-floral" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 좌측 상단 가지 -->
-      <g opacity="0.2" stroke="#c9a96e" fill="none">
-        <path d="M-20,0 Q120,100 220,200 Q300,280 320,380" stroke-width="1.5"/>
-        <path d="M220,200 Q180,160 150,110" stroke-width="1"/>
-        <path d="M270,250 Q240,210 210,170" stroke-width="0.9"/>
-        <path d="M300,310 Q260,270 240,230" stroke-width="0.8"/>
-        <!-- 잎사귀 -->
-        <path d="M155,112 Q135,90 155,70 Q175,90 155,112Z" stroke-width="0.7"/>
-        <path d="M212,172 Q190,150 210,128 Q230,150 212,172Z" stroke-width="0.7"/>
-        <path d="M242,232 Q218,210 240,188 Q262,210 242,232Z" stroke-width="0.7"/>
+    <svg class="section-floral" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <!-- 좌측 상단 장미 가지 -->
+      <g opacity="0.32" stroke="#e8a0b8" fill="none">
+        <path d="M-10,0 Q80,80 150,170 Q210,245 220,340" stroke-width="1.8"/>
+        <path d="M150,170 Q115,130 90,88" stroke-width="1.2"/>
+        <path d="M185,215 Q148,178 122,140" stroke-width="1"/>
+        <path d="M210,275 Q170,240 148,200" stroke-width="0.9"/>
+        <path d="M92,90 Q74,70 92,50 Q110,70 92,90Z" stroke-width="0.8"/>
+        <path d="M124,142 Q104,120 124,98 Q144,120 124,142Z" stroke-width="0.8"/>
+        <path d="M150,202 Q128,180 150,158 Q172,180 150,202Z" stroke-width="0.7"/>
       </g>
-      <!-- 장미 꽃봉오리들 (좌측) -->
-      <g opacity="0.24" fill="none" stroke="#e8c878">
-        <g transform="translate(148,108)">
-          <circle r="10" stroke-width="0.9"/>
-          <path d="M0,-10 Q8,-6 8,0 Q8,6 0,10 Q-8,6 -8,0 Q-8,-6 0,-10Z" stroke-width="0.8"/>
-          <path d="M-7,-7 Q-2,-4 0,0 Q-2,4 -7,7" stroke-width="0.7"/>
-          <path d="M7,-7 Q2,-4 0,0 Q2,4 7,7" stroke-width="0.7"/>
-        </g>
-        <g transform="translate(208,168)">
-          <circle r="8" stroke-width="0.8"/>
-          <path d="M0,-8 Q6,-5 6,0 Q6,5 0,8 Q-6,5 -6,0 Q-6,-5 0,-8Z" stroke-width="0.7"/>
-        </g>
-        <g transform="translate(240,228)">
-          <circle r="7" stroke-width="0.8"/>
-          <path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.7"/>
-        </g>
+      <g opacity="0.36" fill="none" stroke="#f0b0c8">
+        <g transform="translate(88,86)"><circle r="10" stroke-width="0.9"/><path d="M0,-10 Q8,-6 8,0 Q8,6 0,10 Q-8,6 -8,0 Q-8,-6 0,-10Z" stroke-width="0.8"/><path d="M-7,-7 Q-2,-4 0,0 Q-2,4 -7,7" stroke-width="0.7"/><path d="M7,-7 Q2,-4 0,0 Q2,4 7,7" stroke-width="0.7"/></g>
+        <g transform="translate(122,138)"><circle r="8" stroke-width="0.8"/><path d="M0,-8 Q6,-5 6,0 Q6,5 0,8 Q-6,5 -6,0 Q-6,-5 0,-8Z" stroke-width="0.7"/></g>
+        <g transform="translate(148,198)"><circle r="7" stroke-width="0.8"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.7"/></g>
       </g>
-      <!-- 우측 하단 가지 -->
-      <g opacity="0.16" stroke="#c9a96e" fill="none">
-        <path d="M1220,600 Q1080,500 960,400 Q880,330 840,240" stroke-width="1.5"/>
-        <path d="M960,400 Q1000,360 1040,310" stroke-width="1"/>
-        <path d="M900,360 Q940,320 970,275" stroke-width="0.9"/>
-        <path d="M1042,308 Q1022,285 1042,262 Q1062,285 1042,308Z" stroke-width="0.7"/>
-        <path d="M972,273 Q950,250 972,226 Q994,250 972,273Z" stroke-width="0.7"/>
+      <!-- 우측 하단 장미 가지 -->
+      <g opacity="0.26" stroke="#e8a0b8" fill="none">
+        <path d="M420,620 Q330,530 255,440 Q195,365 178,270" stroke-width="1.8"/>
+        <path d="M255,440 Q290,400 322,355" stroke-width="1.2"/>
+        <path d="M218,400 Q255,362 282,318" stroke-width="1"/>
+        <path d="M324,353 Q304,330 324,307 Q344,330 324,353Z" stroke-width="0.8"/>
+        <path d="M284,316 Q262,293 284,269 Q306,293 284,316Z" stroke-width="0.7"/>
       </g>
-      <g opacity="0.2" fill="none" stroke="#e8c878">
-        <g transform="translate(1040,308)">
-          <circle r="9" stroke-width="0.8"/>
-          <path d="M0,-9 Q7,-5 7,0 Q7,5 0,9 Q-7,5 -7,0 Q-7,-5 0,-9Z" stroke-width="0.7"/>
-          <path d="M-6,-6 Q-2,-3 0,0 Q-2,3 -6,6" stroke-width="0.6"/>
-          <path d="M6,-6 Q2,-3 0,0 Q2,3 6,6" stroke-width="0.6"/>
-        </g>
-        <g transform="translate(970,272)">
-          <circle r="7" stroke-width="0.7"/>
-          <path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.6"/>
-        </g>
+      <g opacity="0.3" fill="none" stroke="#f0b0c8">
+        <g transform="translate(322,350)"><circle r="9" stroke-width="0.8"/><path d="M0,-9 Q7,-5 7,0 Q7,5 0,9 Q-7,5 -7,0 Q-7,-5 0,-9Z" stroke-width="0.7"/><path d="M-6,-6 Q-2,-3 0,0 Q-2,3 -6,6" stroke-width="0.6"/><path d="M6,-6 Q2,-3 0,0 Q2,3 6,6" stroke-width="0.6"/></g>
+        <g transform="translate(282,312)"><circle r="7" stroke-width="0.7"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.6"/></g>
       </g>
       <!-- 흩날리는 꽃잎 -->
-      <g opacity="0.1" fill="#e8c878">
-        <ellipse cx="500" cy="100" rx="6" ry="3.5" transform="rotate(-20,500,100)"/>
-        <ellipse cx="700" cy="200" rx="5" ry="3" transform="rotate(35,700,200)"/>
-        <ellipse cx="400" cy="450" rx="5" ry="3" transform="rotate(-10,400,450)"/>
-        <ellipse cx="800" cy="500" rx="6" ry="3.5" transform="rotate(25,800,500)"/>
-        <ellipse cx="600" cy="350" rx="4" ry="2.5" transform="rotate(15,600,350)"/>
+      <g opacity="0.2" fill="#f0b0c8">
+        <ellipse cx="200" cy="100" rx="5" ry="3" transform="rotate(-20,200,100)"/>
+        <ellipse cx="300" cy="200" rx="4" ry="2.5" transform="rotate(35,300,200)"/>
+        <ellipse cx="100" cy="400" rx="5" ry="3" transform="rotate(-10,100,400)"/>
+        <ellipse cx="330" cy="480" rx="5" ry="3" transform="rotate(25,330,480)"/>
+        <ellipse cx="180" cy="320" rx="4" ry="2.5" transform="rotate(15,180,320)"/>
       </g>
     </svg>
     <div class="container">
-      <div class="section-label" style="color:#c9a96e;">How It Works</div>
-      <h2 class="section-title" style="color:#f5efe6;">이렇게 만들어집니다</h2>
-      <p class="section-sub" style="color:#c4b09a;">신청부터 완성까지, 소중한 이야기를 정성껏 노래로 빚어드립니다.</p>
-      <div class="divider" style="background:linear-gradient(to right, #c9a96e, transparent);"></div>
-
+      <div class="section-label" style="color:#e8a0b8;">How It Works</div>
+      <h2 class="section-title" style="color:#f5e8ed;">이렇게 만들어집니다</h2>
+      <p class="section-sub" style="color:#c0a0b0;">신청부터 완성까지, 소중한 이야기를 정성껏 노래로 빚어드립니다.</p>
+      <div class="divider" style="background:linear-gradient(to right,var(--pink),transparent);"></div>
       <div class="step-list">
         <div class="step-item">
           <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>사연 신청 & 선금 입금</h3>
-            <p>신청서에 소중한 이야기를 적어주세요. 선금(2만원) 입금 후 제작이 시작됩니다.</p>
-          </div>
+          <div class="step-content"><h3>사연 신청 &amp; 선금 입금</h3><p>신청서에 소중한 이야기를 적어주세요. 선금(2만원) 입금 후 제작이 시작됩니다.</p></div>
         </div>
         <div class="step-item">
           <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>가사 작업 & 작곡</h3>
-            <p>당신의 사연을 바탕으로 가사와 멜로디를 정성껏 제작합니다. 약 5~7일 소요.</p>
-          </div>
+          <div class="step-content"><h3>가사 작업 &amp; 작곡</h3><p>당신의 사연을 바탕으로 가사와 멜로디를 정성껏 제작합니다. 약 5~7일 소요.</p></div>
         </div>
         <div class="step-item">
           <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>완성본 전달 & 잔금 납부</h3>
-            <p>MP3 파일과 유튜브 비공개 링크로 전달해 드립니다. 잔금(3만원)은 수령 후 납부.</p>
-          </div>
+          <div class="step-content"><h3>완성본 전달 &amp; 잔금 납부</h3><p>MP3 파일과 유튜브 비공개 링크로 전달해 드립니다. 잔금(3만원)은 수령 후 납부.</p></div>
         </div>
         <div class="step-item">
           <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>영원히 간직하는 나만의 노래</h3>
-            <p>세상에 단 하나뿐인 블레송이 완성됩니다. 해를 더할수록 더 귀한 선물이 됩니다.</p>
-          </div>
+          <div class="step-content"><h3>영원히 간직하는 나만의 노래</h3><p>세상에 단 하나뿐인 블레송이 완성됩니다. 해를 더할수록 더 귀한 선물이 됩니다.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SAMPLE -->
-  <section id="sample" style="background:#2a1a10; padding:80px 0; text-align:center;">
+  <section class="sample" id="sample">
     <div class="container">
-      <p style="font-family:'Noto Serif KR',serif; font-size:.85rem; letter-spacing:.25em; color:#c8961e; margin-bottom:12px;">SAMPLE SONG</p>
-      <h2 style="font-family:'Noto Serif KR',serif; font-size:clamp(1.4rem,3vw,2rem); color:#faf0d8; font-weight:400; margin-bottom:8px;">샘플송 들어보기</h2>
-      <p style="font-size:.9rem; color:#b09050; margin-bottom:36px; letter-spacing:.05em;">실제 제작된 블레송포유의 노래입니다</p>
+      <p style="font-family:'Noto Serif KR',serif; font-size:.85rem; letter-spacing:.25em; color:var(--pink-s); margin-bottom:12px;">SAMPLE SONG</p>
+      <h2 style="font-family:'Noto Serif KR',serif; font-size:clamp(1.4rem,3vw,2rem); color:#f5e8ed; font-weight:400; margin-bottom:8px;">샘플송 들어보기</h2>
+      <p style="font-size:.9rem; color:#c0a0b0; margin-bottom:36px; letter-spacing:.05em;">실제 제작된 블레송포유의 노래입니다</p>
 
-      <!-- 탭 버튼 -->
-      <div style="display:inline-flex; gap:0; border:1px solid #c8961e; border-radius:50px; overflow:hidden; margin-bottom:36px;">
-        <button id="tab-anniversary" onclick="showSample('anniversary')"
-          style="padding:10px 28px; font-family:'Noto Sans KR',sans-serif; font-size:.88rem; cursor:pointer; border:none; background:#c8961e; color:#1a0d04; font-weight:600; letter-spacing:.05em; transition:all .2s;">
-          💍 결혼기념송
-        </button>
-        <button id="tab-birthday" onclick="showSample('birthday')"
-          style="padding:10px 28px; font-family:'Noto Sans KR',sans-serif; font-size:.88rem; cursor:pointer; border:none; background:transparent; color:#c8961e; font-weight:400; letter-spacing:.05em; transition:all .2s;">
-          🎂 생일축복송
-        </button>
+      <div class="sample-tabs">
+        <button id="tab-anniversary" class="tab-btn active" onclick="showSample('anniversary')">💍 결혼기념송</button>
+        <button id="tab-birthday" class="tab-btn" onclick="showSample('birthday')">🎂 생일축복송</button>
       </div>
 
-      <!-- 결혼기념송 -->
       <div id="sample-anniversary">
-        <div style="max-width:680px; margin:0 auto 20px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.4);">
-          <div style="position:relative; padding-bottom:56.25%; height:0;">
-            <iframe src="https://www.youtube.com/embed/5oFkdb_81N0"
-              title="블레송포유 결혼기념송 — 승선하다"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position:absolute; top:0; left:0; width:100%; height:100%;">
-            </iframe>
+        <div class="sample-video-wrap">
+          <div class="sample-ratio">
+            <iframe src="https://www.youtube.com/embed/5oFkdb_81N0" title="결혼기념송" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-        <p style="font-size:.9rem; color:#c8961e; margin-bottom:10px;">🎵 승선하다 — 결혼 34주년 기념송</p>
-        <p style="font-size:.85rem; color:#b09050; max-width:560px; margin:0 auto; line-height:1.8;">이승제 &amp; 민선미 목사님 내외분의 결혼 34주년을 축하하며<br>특별한 날의 기억을 노래에 담아 드린 작품입니다.</p>
+        <p class="sample-title">🎵 승선하다 — 결혼 34주년 기념송</p>
+        <p class="sample-desc">이승제 &amp; 민선미 목사님 내외분의 결혼 34주년을 축하하며<br>특별한 날의 기억을 노래에 담아 드린 작품입니다.</p>
       </div>
 
-      <!-- 생일축복송 -->
       <div id="sample-birthday" style="display:none;">
-        <div style="max-width:680px; margin:0 auto 20px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.4);">
-          <div style="position:relative; padding-bottom:56.25%; height:0;">
-            <iframe src="https://www.youtube.com/embed/M9zEatuMx08"
-              title="블레송포유 생일축복송"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position:absolute; top:0; left:0; width:100%; height:100%;">
-            </iframe>
+        <div class="sample-video-wrap">
+          <div class="sample-ratio">
+            <iframe src="https://www.youtube.com/embed/M9zEatuMx08" title="생일축복송" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-        <p style="font-size:.9rem; color:#c8961e; margin-bottom:6px;">🎵 생일 축복송 <span style="font-size:.78rem; color:#b09050;">(샘플 편집본)</span></p>
-        <p style="font-size:.85rem; color:#b09050; max-width:560px; margin:0 auto; line-height:1.8;">시적인 가사에 태어난 날의 의미를 담아,<br>부모님이 사랑하는 자녀에게 전하는 인생의 메시지를 담았습니다.<br>해가 더할수록 의미가 깊어지는 평생의 노래입니다.</p>
+        <p class="sample-title">🎵 생일 축복송 <span style="font-size:.78rem; color:#c0a0b0;">(샘플 편집본)</span></p>
+        <p class="sample-desc">시적인 가사에 태어난 날의 의미를 담아,<br>부모님이 사랑하는 자녀에게 전하는 인생의 메시지를 담았습니다.<br>해가 더할수록 의미가 깊어지는 평생의 노래입니다.</p>
       </div>
 
       <div style="margin-top:40px;">
-        <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">
-          ✉ 나만의 노래 신청하기
-        </a>
+        <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">✉ 나만의 노래 신청하기</a>
       </div>
     </div>
   </section>
 
   <script>
     function showSample(type) {
-      document.getElementById('sample-anniversary').style.display = type === 'anniversary' ? 'block' : 'none';
-      document.getElementById('sample-birthday').style.display   = type === 'birthday'    ? 'block' : 'none';
-      document.getElementById('tab-anniversary').style.background = type === 'anniversary' ? '#c8961e' : 'transparent';
-      document.getElementById('tab-anniversary').style.color      = type === 'anniversary' ? '#1a0d04' : '#c8961e';
-      document.getElementById('tab-anniversary').style.fontWeight = type === 'anniversary' ? '600' : '400';
-      document.getElementById('tab-birthday').style.background    = type === 'birthday'    ? '#c8961e' : 'transparent';
-      document.getElementById('tab-birthday').style.color         = type === 'birthday'    ? '#1a0d04' : '#c8961e';
-      document.getElementById('tab-birthday').style.fontWeight    = type === 'birthday'    ? '600' : '400';
+      document.getElementById('sample-anniversary').style.display = type==='anniversary' ? 'block' : 'none';
+      document.getElementById('sample-birthday').style.display   = type==='birthday'    ? 'block' : 'none';
+      document.getElementById('tab-anniversary').classList.toggle('active', type==='anniversary');
+      document.getElementById('tab-birthday').classList.toggle('active', type==='birthday');
     }
   </script>
 
   <!-- PRICING -->
   <section class="pricing" id="pricing">
-    <!-- 흩날리는 꽃잎 + 양쪽 작은 꽃 (샴페인 골드톤) -->
-    <svg class="section-floral" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 좌측 꽃 가지 -->
-      <g opacity="0.15" stroke="#9a6c18" fill="none">
-        <path d="M0,200 Q80,260 140,340 Q180,400 160,480" stroke-width="1.2"/>
-        <path d="M140,340 Q100,300 70,250" stroke-width="0.9"/>
-        <path d="M72,250 Q55,228 72,206 Q89,228 72,250Z" stroke-width="0.7"/>
-        <path d="M102,302 Q82,278 102,254 Q122,278 102,302Z" stroke-width="0.7"/>
-      </g>
-      <g opacity="0.2" fill="none" stroke="#b88828">
-        <g transform="translate(70,248)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(100,300)"><ellipse rx="5" ry="10" transform="rotate(20)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(92)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(164)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(236)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(308)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
-      </g>
-      <!-- 우측 꽃 가지 -->
-      <g opacity="0.15" stroke="#9a6c18" fill="none">
-        <path d="M1200,150 Q1100,230 1040,320 Q1000,390 1020,470" stroke-width="1.2"/>
-        <path d="M1040,320 Q1080,280 1110,230" stroke-width="0.9"/>
-        <path d="M1112,228 Q1094,205 1112,182 Q1130,205 1112,228Z" stroke-width="0.7"/>
-        <path d="M1080,282 Q1060,258 1080,234 Q1100,258 1080,282Z" stroke-width="0.7"/>
-      </g>
-      <g opacity="0.2" fill="none" stroke="#b88828">
-        <g transform="translate(1112,182)"><ellipse rx="6" ry="12" transform="rotate(10)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(82)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(154)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(226)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(298)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(1080,235)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
-      </g>
-      <!-- 흩날리는 꽃잎 전체 -->
-      <g opacity="0.1" fill="#9a6c18">
-        <ellipse cx="300" cy="80" rx="6" ry="3.5" transform="rotate(20,300,80)"/>
-        <ellipse cx="500" cy="600" rx="5" ry="3" transform="rotate(-15,500,600)"/>
-        <ellipse cx="700" cy="120" rx="6" ry="3.5" transform="rotate(35,700,120)"/>
-        <ellipse cx="900" cy="580" rx="5" ry="3" transform="rotate(10,900,580)"/>
-        <ellipse cx="600" cy="50" rx="4" ry="2.5" transform="rotate(-25,600,50)"/>
-        <ellipse cx="200" cy="550" rx="5" ry="3" transform="rotate(30,200,550)"/>
-        <ellipse cx="1000" cy="100" rx="4" ry="2.5" transform="rotate(-10,1000,100)"/>
-      </g>
-    </svg>
-    <div class="container" style="text-align:center;">
-      <div class="section-label">Pricing</div>
+    <div class="container">
+      <div class="section-label" style="color:var(--pink);">Pricing</div>
       <h2 class="section-title">제작 비용 안내</h2>
-      <p class="section-sub" style="margin:0 auto;">합리적인 가격으로, 평생 간직할 특별한 선물을.</p>
-      <div class="divider" style="margin:18px auto 0;"></div>
-
+      <p class="section-sub" style="margin:0 auto; color:#c0a0b0;">합리적인 가격으로, 평생 간직할 특별한 선물을.</p>
       <div class="price-card">
         <div class="event-badge">🎉 오픈 기념 얼리버드 특가</div>
         <div class="price-original">정가 100,000원</div>
-        <div class="price-main">50,000원</div>
+        <div class="price-main">50,000<span style="font-size:1.1rem; color:#c0a0b0;">원</span></div>
         <div class="price-unit">1곡 기준</div>
         <div class="price-notice">⏰ 초반 한정가 · 추후 정가로 인상 예정</div>
-
         <div class="price-detail">
           <p>✦ 선금 <strong>2만원</strong> 입금 후 제작 시작</p>
           <p>✦ 완성본 수령 후 잔금 <strong>3만원</strong> 납부</p>
           <p>✦ 제작 기간: 신청 확인 후 <strong>5~7일</strong></p>
           <p>✦ MP3 파일 + 유튜브 비공개 링크 제공</p>
-          <p>✦ 저작권: 블레송포유 &amp; 고객님 공동 귀속</p>
+          <p>✦ 저작권 100% 고객님께 귀속</p>
         </div>
-
         <p class="price-note">입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)</p>
-
-        <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">
-          ✉ 신청서 작성하기
-        </a>
-        <a href="https://open.kakao.com/me/blessong4u" target="_blank" style="display:inline-flex; align-items:center; gap:8px; font-size:.95rem; padding:14px 36px; margin-top:12px; background:#FAE100; color:#3C1E1E; font-family:'Noto Sans KR',sans-serif; font-weight:600; border-radius:50px; text-decoration:none; letter-spacing:.03em; transition:background .2s;" onmouseover="this.style.background='#F0D800'" onmouseout="this.style.background='#FAE100'">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="9" rx="9" ry="7.5" fill="#3C1E1E"/><path d="M5 9c0-.6.5-1.5 1.2-2.1C7 6.2 8.4 5.8 10 5.8s3 .4 3.8 1.1C14.5 7.5 15 8.4 15 9c0 2.2-2.2 4-5 4-.5 0-1-.1-1.5-.2L6 14l.8-1.8C5.7 11.4 5 10.3 5 9z" fill="#FAE100"/></svg>
-          카카오 오픈채팅 문의
-        </a>
+        <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">✉ 신청서 작성하기</a>
+        <div style="margin-top:12px;">
+          <a href="https://open.kakao.com/me/blessong4u" target="_blank" class="contact-btn kakao" style="display:inline-flex; align-items:center; gap:8px; padding:14px 36px; background:#FAE100; color:#3C1E1E; border-radius:50px; font-size:.95rem; font-weight:600; text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
+            카카오 오픈채팅 문의
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <!-- 양쪽 꽃 가지 (로즈골드톤, 마무리 화사하게) -->
-    <svg class="section-floral" viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 좌측 가지 -->
-      <g opacity="0.22" stroke="#d4788a" fill="none">
-        <path d="M-20,500 Q80,380 180,280 Q260,200 300,100" stroke-width="1.5"/>
-        <path d="M180,280 Q140,240 100,190" stroke-width="1"/>
-        <path d="M240,220 Q200,185 170,145" stroke-width="0.9"/>
-        <path d="M102,190 Q80,165 102,140 Q124,165 102,190Z" stroke-width="0.7"/>
-        <path d="M172,146 Q150,120 172,94 Q194,120 172,146Z" stroke-width="0.7"/>
-      </g>
-      <g opacity="0.28" fill="none" stroke="#e8a0b0">
-        <g transform="translate(100,188)"><ellipse rx="7" ry="14" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(288)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
-        <g transform="translate(170,142)"><ellipse rx="6" ry="12" transform="rotate(15)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(87)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(159)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(231)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(303)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(300,98)"><ellipse rx="8" ry="16" transform="rotate(0)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(72)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(144)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(216)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(288)" stroke-width="1"/><circle r="3.5" stroke-width="0.9"/></g>
-      </g>
-      <!-- 우측 가지 -->
-      <g opacity="0.22" stroke="#c9a96e" fill="none">
-        <path d="M1220,500 Q1110,380 1010,270 Q940,190 910,80" stroke-width="1.5"/>
-        <path d="M1010,270 Q1055,228 1095,178" stroke-width="1"/>
-        <path d="M950,215 Q990,178 1020,132" stroke-width="0.9"/>
-        <path d="M1097,178 Q1075,153 1097,128 Q1119,153 1097,178Z" stroke-width="0.7"/>
-        <path d="M1022,132 Q1000,106 1022,80 Q1044,106 1022,132Z" stroke-width="0.7"/>
-      </g>
-      <g opacity="0.28" fill="none" stroke="#e8c878">
-        <g transform="translate(1097,127)"><ellipse rx="7" ry="14" transform="rotate(10)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(82)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(154)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(226)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(298)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
-        <g transform="translate(1022,79)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(910,77)"><ellipse rx="8" ry="16" transform="rotate(5)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(77)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(149)" stroke-width="1"/><ellipse rx="8"
+    <div class="container">
+      <div class="section-label" style="color:var(--pink);">Contact</div>
+      <h2 class="section-title">신청 및 문의</h2>
+      <p class="section-sub" style="margin:0 auto; color:#c0a0b0;">소중한 날을 위한 노래, 지금 신청해 보세요.</p>
+      <div class="contact-links">
+        <a href="https://forms.gle/zikZ53TqXkb1sK6PA" target="_blank" class="contact-btn form">✉ 신청서 작성하기</a>
+        <a href="https://open.kakao.com/me/blessong4u" target="_blank" class="contact-btn kakao">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
+          카카오 오픈채팅
+        </a>
+        <a href="https://www.youtube.com/@blessong4u" target="_blank" class="contact-btn youtube">▶ 유튜브 채널</a>
+      </div>
+      <div class="account-info">
+        입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)<br>
+        문의·상담은 카카오 오픈채팅으로 편하게 연락해 주세요.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright ⓒ 블레송포유 Blessong4u. All Rights Reserved.</p>
+    <p style="margin-top:6px;">가게 홍보송은 <a href="../storesong4u/index.html">스토어송포유</a>에서 만나보세요.</p>
+  </footer>
+
+</body>
+</html>
