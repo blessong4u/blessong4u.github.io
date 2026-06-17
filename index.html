@@ -207,7 +207,11 @@
     .account-info { font-size:.83rem; color:#8a6070; margin-top:20px; line-height:2.2; }
 
     /* SECTION FLORAL */
-    .section-floral { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+    .section-floral { position:absolute; pointer-events:none; z-index:0; overflow:visible; }
+    .floral-tr { top:0; right:0; width:220px; height:220px; }
+    .floral-bl { bottom:0; left:0; width:220px; height:220px; }
+    .floral-br { bottom:0; right:0; width:220px; height:220px; }
+    @media(max-width:600px){ .floral-tr,.floral-bl,.floral-br { width:150px; height:150px; } }
     .services .container, .steps .container, .pricing .container, .contact .container, .sample .container { position:relative; z-index:1; }
 
     footer { background:var(--brown); color:rgba(253,240,243,.4); text-align:center; padding:28px 24px; font-size:.77rem; line-height:2; }
@@ -330,36 +334,37 @@
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <svg class="section-floral" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 우측 상단 벚꽃 가지 -->
+    <!-- 우상단 벚꽃 -->
+    <svg class="section-floral floral-tr" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g opacity="0.32" stroke="#e8a0b8" fill="none">
-        <path d="M420,0 Q340,60 280,130 Q230,190 210,270" stroke-width="1.8"/>
-        <path d="M280,130 Q310,95 350,70" stroke-width="1.2"/>
-        <path d="M250,165 Q285,135 315,110" stroke-width="1"/>
-        <path d="M225,210 Q265,178 295,155" stroke-width="0.9"/>
+        <path d="M220,0 Q175,30 135,75 Q108,108 100,148" stroke-width="1.6"/>
+        <path d="M135,75 Q158,50 188,32" stroke-width="1.1"/>
+        <path d="M115,100 Q140,74 168,58" stroke-width="0.9"/>
       </g>
       <g opacity="0.36" fill="none" stroke="#f0b0c8">
-        <g transform="translate(348,68)"><ellipse rx="7" ry="14" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(288)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
-        <g transform="translate(312,108)"><ellipse rx="6" ry="12" transform="rotate(20)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(92)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(164)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(236)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(308)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(290,152)"><ellipse rx="5" ry="10" transform="rotate(10)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(82)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(154)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(226)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(298)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
+        <g transform="translate(186,30)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.9"/><circle r="2.5" stroke-width="0.8"/></g>
+        <g transform="translate(165,56)"><ellipse rx="5" ry="9" transform="rotate(20)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(92)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(164)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(236)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(308)" stroke-width="0.8"/><circle r="2" stroke-width="0.7"/></g>
       </g>
-      <!-- 좌측 하단 벚꽃 가지 -->
+      <g opacity="0.20" fill="#f0b0c8">
+        <ellipse cx="130" cy="42" rx="4" ry="2.5" transform="rotate(25,130,42)"/>
+        <ellipse cx="100" cy="80" rx="3" ry="1.8" transform="rotate(-15,100,80)"/>
+        <ellipse cx="160" cy="110" rx="3" ry="1.8" transform="rotate(40,160,110)"/>
+      </g>
+    </svg>
+    <!-- 좌하단 벚꽃 -->
+    <svg class="section-floral floral-bl" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g opacity="0.26" stroke="#e8a0b8" fill="none">
-        <path d="M-20,620 Q60,530 130,450 Q190,380 210,300" stroke-width="1.8"/>
-        <path d="M130,450 Q95,415 70,370" stroke-width="1.2"/>
-        <path d="M170,410 Q130,375 105,330" stroke-width="1"/>
+        <path d="M0,220 Q45,188 85,145 Q112,112 120,72" stroke-width="1.6"/>
+        <path d="M85,145 Q62,170 32,188" stroke-width="1.1"/>
+        <path d="M105,120 Q80,146 52,162" stroke-width="0.9"/>
       </g>
-      <g opacity="0.3" fill="none" stroke="#f0b0c8">
-        <g transform="translate(68,368)"><ellipse rx="6" ry="12" transform="rotate(15)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(87)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(159)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(231)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(303)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(105,328)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.7"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.7"/><circle r="2" stroke-width="0.7"/></g>
+      <g opacity="0.30" fill="none" stroke="#f0b0c8">
+        <g transform="translate(34,190)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.8"/><circle r="2" stroke-width="0.7"/></g>
+        <g transform="translate(54,164)"><ellipse rx="4" ry="8" transform="rotate(15)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(87)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(159)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(231)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(303)" stroke-width="0.7"/><circle r="1.8" stroke-width="0.6"/></g>
       </g>
-      <!-- 흩날리는 꽃잎 -->
-      <g opacity="0.22" fill="#f0b0c8">
-        <ellipse cx="200" cy="80" rx="5" ry="3" transform="rotate(25,200,80)"/>
-        <ellipse cx="150" cy="200" rx="4" ry="2.5" transform="rotate(-15,150,200)"/>
-        <ellipse cx="260" cy="320" rx="3.5" ry="2" transform="rotate(40,260,320)"/>
-        <ellipse cx="80" cy="480" rx="5" ry="3" transform="rotate(10,80,480)"/>
-        <ellipse cx="320" cy="420" rx="3.5" ry="2" transform="rotate(50,320,420)"/>
+      <g opacity="0.16" fill="#f0b0c8">
+        <ellipse cx="90" cy="178" rx="4" ry="2.5" transform="rotate(20,90,178)"/>
+        <ellipse cx="120" cy="140" rx="3" ry="1.8" transform="rotate(-10,120,140)"/>
       </g>
     </svg>
     <div class="container">
@@ -380,41 +385,23 @@
 
   <!-- STEPS -->
   <section class="steps" id="how">
-    <svg class="section-floral" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <!-- 좌측 상단 장미 가지 -->
-      <g opacity="0.32" stroke="#e8a0b8" fill="none">
-        <path d="M-10,0 Q80,80 150,170 Q210,245 220,340" stroke-width="1.8"/>
-        <path d="M150,170 Q115,130 90,88" stroke-width="1.2"/>
-        <path d="M185,215 Q148,178 122,140" stroke-width="1"/>
-        <path d="M210,275 Q170,240 148,200" stroke-width="0.9"/>
-        <path d="M92,90 Q74,70 92,50 Q110,70 92,90Z" stroke-width="0.8"/>
-        <path d="M124,142 Q104,120 124,98 Q144,120 124,142Z" stroke-width="0.8"/>
-        <path d="M150,202 Q128,180 150,158 Q172,180 150,202Z" stroke-width="0.7"/>
-      </g>
-      <g opacity="0.36" fill="none" stroke="#f0b0c8">
-        <g transform="translate(88,86)"><circle r="10" stroke-width="0.9"/><path d="M0,-10 Q8,-6 8,0 Q8,6 0,10 Q-8,6 -8,0 Q-8,-6 0,-10Z" stroke-width="0.8"/><path d="M-7,-7 Q-2,-4 0,0 Q-2,4 -7,7" stroke-width="0.7"/><path d="M7,-7 Q2,-4 0,0 Q2,4 7,7" stroke-width="0.7"/></g>
-        <g transform="translate(122,138)"><circle r="8" stroke-width="0.8"/><path d="M0,-8 Q6,-5 6,0 Q6,5 0,8 Q-6,5 -6,0 Q-6,-5 0,-8Z" stroke-width="0.7"/></g>
-        <g transform="translate(148,198)"><circle r="7" stroke-width="0.8"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.7"/></g>
-      </g>
-      <!-- 우측 하단 장미 가지 -->
+    <!-- 우하단 장미 -->
+    <svg class="section-floral floral-br" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g opacity="0.26" stroke="#e8a0b8" fill="none">
-        <path d="M420,620 Q330,530 255,440 Q195,365 178,270" stroke-width="1.8"/>
-        <path d="M255,440 Q290,400 322,355" stroke-width="1.2"/>
-        <path d="M218,400 Q255,362 282,318" stroke-width="1"/>
-        <path d="M324,353 Q304,330 324,307 Q344,330 324,353Z" stroke-width="0.8"/>
-        <path d="M284,316 Q262,293 284,269 Q306,293 284,316Z" stroke-width="0.7"/>
+        <path d="M220,220 Q178,185 138,140 Q110,108 102,68" stroke-width="1.6"/>
+        <path d="M138,140 Q162,116 188,98" stroke-width="1.1"/>
+        <path d="M118,115 Q144,90 170,74" stroke-width="0.9"/>
+        <path d="M108,85 Q88,65 108,44 Q128,65 108,85Z" stroke-width="0.8"/>
+        <path d="M140,112 Q118,90 140,68 Q162,90 140,112Z" stroke-width="0.7"/>
       </g>
-      <g opacity="0.3" fill="none" stroke="#f0b0c8">
-        <g transform="translate(322,350)"><circle r="9" stroke-width="0.8"/><path d="M0,-9 Q7,-5 7,0 Q7,5 0,9 Q-7,5 -7,0 Q-7,-5 0,-9Z" stroke-width="0.7"/><path d="M-6,-6 Q-2,-3 0,0 Q-2,3 -6,6" stroke-width="0.6"/><path d="M6,-6 Q2,-3 0,0 Q2,3 6,6" stroke-width="0.6"/></g>
-        <g transform="translate(282,312)"><circle r="7" stroke-width="0.7"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.6"/></g>
+      <g opacity="0.30" fill="none" stroke="#f0b0c8">
+        <g transform="translate(186,96)"><circle r="9" stroke-width="0.8"/><path d="M0,-9 Q7,-5 7,0 Q7,5 0,9 Q-7,5 -7,0 Q-7,-5 0,-9Z" stroke-width="0.7"/></g>
+        <g transform="translate(168,72)"><circle r="7" stroke-width="0.7"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.6"/></g>
       </g>
-      <!-- 흩날리는 꽃잎 -->
-      <g opacity="0.2" fill="#f0b0c8">
-        <ellipse cx="200" cy="100" rx="5" ry="3" transform="rotate(-20,200,100)"/>
-        <ellipse cx="300" cy="200" rx="4" ry="2.5" transform="rotate(35,300,200)"/>
-        <ellipse cx="100" cy="400" rx="5" ry="3" transform="rotate(-10,100,400)"/>
-        <ellipse cx="330" cy="480" rx="5" ry="3" transform="rotate(25,330,480)"/>
-        <ellipse cx="180" cy="320" rx="4" ry="2.5" transform="rotate(15,180,320)"/>
+      <g opacity="0.18" fill="#f0b0c8">
+        <ellipse cx="130" cy="178" rx="4" ry="2.5" transform="rotate(20,130,178)"/>
+        <ellipse cx="90" cy="150" rx="3" ry="1.8" transform="rotate(-10,90,150)"/>
+        <ellipse cx="170" cy="130" rx="3" ry="1.8" transform="rotate(35,170,130)"/>
       </g>
     </svg>
     <div class="container">
