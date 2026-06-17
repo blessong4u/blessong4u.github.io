@@ -61,8 +61,8 @@
     .nav-logo span { color: var(--gold); }
 
     .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-links a { font-size: .88rem; color: var(--text-mid); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a { font-size: .88rem; color: #3a2808; font-weight: 600; text-decoration: none; transition: color .2s; letter-spacing: .04em; }
+    .nav-links a:not(.nav-cta):hover { color: #c05840; border-bottom: 2px solid #c05840; padding-bottom: 2px; }
 
     .nav-cta {
       background: var(--rose) !important;
@@ -517,7 +517,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo"><img src="logo.jpg" alt="블레송포유 로고" style="height:52px; width:52px; border-radius:50%; object-fit:cover; border:1.5px solid #c8961e;"></a>
+    <a href="#" class="nav-logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img src="logo.jpg" alt="블레송포유 로고" style="height:52px; width:52px; border-radius:50%; object-fit:cover; border:1.5px solid #c8961e;">
+      <span style="font-family:'Noto Serif KR',serif; font-size:1rem; font-weight:700; color:#3a2808; letter-spacing:.05em; line-height:1.2;">블레송포유</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">서비스</a></li>
       <li><a href="#how">제작과정</a></li>
@@ -627,34 +630,35 @@
     <!-- 샘플송 미리보기 -->
     <div style="margin-top:44px;">
       <p style="font-size:.78rem; color:#8a6530; letter-spacing:.2em; margin-bottom:16px; font-family:'Noto Serif KR',serif;">▶ 샘플송 미리듣기</p>
-      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <!-- 가로 스크롤: 샘플 추가될수록 오른쪽으로 늘어남 -->
+      <div style="display:flex; gap:14px; justify-content:center; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch;">
         <a href="#sample" onclick="setTimeout(()=>showSample('anniversary'),100)"
-          style="display:flex; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; max-width:260px; width:100%; transition:background .2s;"
+          style="display:flex; flex-shrink:0; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; width:220px; transition:background .2s;"
           onmouseover="this.style.background='#52300f'" onmouseout="this.style.background='#3d2310'">
-          <div style="position:relative; flex-shrink:0; width:76px; height:50px; border-radius:8px; overflow:hidden;">
+          <div style="position:relative; flex-shrink:0; width:70px; height:46px; border-radius:8px; overflow:hidden;">
             <img src="https://img.youtube.com/vi/5oFkdb_81N0/mqdefault.jpg" alt="결혼기념송" style="width:100%; height:100%; object-fit:cover;">
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div style="text-align:left;">
-            <p style="font-size:.7rem; color:#c8961e; letter-spacing:.08em; margin-bottom:4px;">💍 결혼기념송 샘플</p>
-            <p style="font-size:.85rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">승선하다</p>
+            <p style="font-size:.68rem; color:#c8961e; letter-spacing:.06em; margin-bottom:4px;">💍 결혼기념송 샘플</p>
+            <p style="font-size:.83rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">승선하다</p>
           </div>
         </a>
 
         <a href="#sample" onclick="setTimeout(()=>showSample('birthday'),100)"
-          style="display:flex; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; max-width:260px; width:100%; transition:background .2s;"
+          style="display:flex; flex-shrink:0; align-items:center; gap:12px; background:#3d2310; border:1px solid #c8961e; border-radius:14px; padding:12px 16px; text-decoration:none; width:220px; transition:background .2s;"
           onmouseover="this.style.background='#52300f'" onmouseout="this.style.background='#3d2310'">
-          <div style="position:relative; flex-shrink:0; width:76px; height:50px; border-radius:8px; overflow:hidden;">
+          <div style="position:relative; flex-shrink:0; width:70px; height:46px; border-radius:8px; overflow:hidden;">
             <img src="https://img.youtube.com/vi/M9zEatuMx08/mqdefault.jpg" alt="생일축복송" style="width:100%; height:100%; object-fit:cover;">
             <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div style="text-align:left;">
-            <p style="font-size:.7rem; color:#c8961e; letter-spacing:.08em; margin-bottom:4px;">🎂 생일축복송 샘플 (편집본)</p>
-            <p style="font-size:.85rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">생일 축복송</p>
+            <p style="font-size:.68rem; color:#c8961e; letter-spacing:.06em; margin-bottom:4px;">🎂 생일축복송 샘플 (편집본)</p>
+            <p style="font-size:.83rem; color:#faf0d8; font-family:'Noto Serif KR',serif;">생일 축복송</p>
           </div>
         </a>
       </div>
@@ -1014,9 +1018,4 @@
       <g opacity="0.28" fill="none" stroke="#e8c878">
         <g transform="translate(1097,127)"><ellipse rx="7" ry="14" transform="rotate(10)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(82)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(154)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(226)" stroke-width="0.9"/><ellipse rx="7" ry="14" transform="rotate(298)" stroke-width="0.9"/><circle r="3" stroke-width="0.8"/></g>
         <g transform="translate(1022,79)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.8"/><circle r="2.5" stroke-width="0.7"/></g>
-        <g transform="translate(910,77)"><ellipse rx="8" ry="16" transform="rotate(5)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(77)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(149)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(221)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(293)" stroke-width="1"/><circle r="3.5" stroke-width="0.9"/></g>
-      </g>
-      <!-- 흩날리는 꽃잎 -->
-      <g opacity="0.12" fill="#d4788a">
-        <ellipse cx="400" cy="80" rx="6" ry="3.5" transform="rotate(25,400,80)"/>
-        <ellipse cx="60
+        <g transform="translate(910,77)"><ellipse rx="8" ry="16" transform="rotate(5)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(77)" stroke-width="1"/><ellipse rx="8" ry="16" transform="rotate(149)" stroke-width="1"/><ellipse rx="8"
