@@ -3,315 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>스토어송포유 StoreSong4u — 우리 가게만의 시그니처 송</title>
-  <meta name="description" content="가게의 이야기와 브랜드 가치를 단 하나뿐인 노래로. 카페, 식당, 매장, 소상공인을 위한 맞춤 브랜드송 제작." />
+  <title>블레송포유 Blessong4u — 세상에 단 하나뿐인 노래</title>
+  <meta name="description" content="생일, 결혼, 기념일 등 소중한 날을 위한 맞춤 제작 노래 서비스. 당신의 이야기를 음표에 담아드립니다." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:          #0d1b4b;
-      --bg-card:     #162258;
-      --bg-card2:    #1c2d6e;
-      --orange:      #fdd108;
-      --orange-soft: #fee84d;
-      --orange-pale: rgba(253,209,8,.15);
-      --amber:       #fdd108;
-      --amber-light: #fff176;
-      --cream:       #ffffff;
-      --cream-soft:  rgba(255,255,255,.85);
-      --cream-dim:   rgba(255,255,255,.55);
-      --cream-faint: rgba(255,255,255,.18);
+      --bg:      #fff8f8;
+      --bg-soft: #fdf0f3;
+      --pink:    #d4547a;
+      --pink-s:  #e07898;
+      --pink-p:  rgba(212,84,122,.1);
+      --rose:    #b03060;
+      --blush:   #f9e4ea;
+      --brown:   #4a1828;
+      --brown-m: #7a3848;
+      --brown-s: #b07888;
+      --dark1:   #2e1a28;
+      --dark2:   #241020;
+      --gold:    #c8961e;
     }
-
-    /* 음악 장식 SVG */
-    .music-deco { position:absolute; pointer-events:none; z-index:0; opacity:0.07; }
-    .music-deco-right { right:0; top:50%; transform:translateY(-50%); }
-    .music-deco-left  { left:0; bottom:10%; }
-    .music-deco-tr    { top:20px; right:20px; }
-    .music-deco-bl    { bottom:20px; left:20px; }
-    @media(max-width:768px){ .music-deco { opacity:0.05; } }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--cream); line-height: 1.8; }
+    body { font-family:'Noto Sans KR',sans-serif; background:var(--bg); color:var(--brown); line-height:1.8; }
 
     /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 14px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(13,27,75,.95); backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(253,209,8,.2);
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      padding:12px 40px;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(255,248,248,.97); backdrop-filter:blur(16px);
+      border-bottom:1.5px solid rgba(212,84,122,.15);
+      box-shadow:0 2px 14px rgba(212,84,122,.08);
     }
-    .nav-logo { display:flex; align-items:center; gap:11px; text-decoration:none; }
-    .nav-logo-icon {
-      width:40px; height:40px; border-radius:10px;
-      background: linear-gradient(135deg, var(--orange), var(--amber));
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 4px 16px rgba(253,209,8,.4);
-    }
-    .nav-brand { font-size:.95rem; font-weight:700; color:var(--cream); letter-spacing:.04em; }
-    .nav-brand em { color:var(--orange); font-style:normal; }
-    .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
-    .nav-links a { font-size:.85rem; color:var(--cream-dim); font-weight:500; text-decoration:none; transition:color .2s; }
-    .nav-links a:not(.nav-cta):hover { color:var(--orange); }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo img { height:46px; width:46px; border-radius:50%; object-fit:cover; border:2px solid rgba(212,84,122,.3); }
+    .nav-brand { font-family:'Noto Serif KR',serif; font-size:.98rem; font-weight:700; color:var(--brown); letter-spacing:.04em; }
+    .nav-brand em { color:var(--pink); font-style:normal; }
+    .nav-links { display:flex; gap:26px; list-style:none; align-items:center; }
+    .nav-links a { font-size:.87rem; color:var(--brown-m); font-weight:600; text-decoration:none; transition:color .2s; }
+    .nav-links a:not(.nav-cta):hover { color:var(--pink); }
     .nav-cta {
-      background: #ffffff !important;
-      color: #0d1b4b !important; padding: 9px 22px; border-radius: 99px;
-      font-weight: 700 !important; box-shadow: 0 4px 16px rgba(255,255,255,.2);
-      transition: transform .2s, box-shadow .2s, background .2s, color .2s !important;
+      background:linear-gradient(135deg,var(--pink),var(--pink-s)) !important;
+      color:#fff !important; padding:9px 22px; border-radius:99px;
+      font-weight:700 !important; box-shadow:0 4px 16px rgba(212,84,122,.3);
+      transition:transform .2s,box-shadow .2s !important;
     }
-    .nav-cta:hover { transform:translateY(-1px); background:var(--orange) !important; color:#0d1b4b !important; box-shadow:0 6px 24px rgba(253,209,8,.5) !important; }
-
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 22px rgba(212,84,122,.45) !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; background:none; border:none; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--orange); border-radius:2px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--pink); border-radius:2px; }
     .mobile-menu {
       display:none; position:fixed; inset:0;
-      background:rgba(13,27,75,.98); z-index:9999;
+      background:rgba(74,24,40,.97); z-index:9999;
       flex-direction:column; align-items:center; justify-content:center; gap:36px;
     }
     .mobile-menu.open { display:flex; }
-    .mobile-menu a { font-family:'Noto Serif KR',serif; font-size:1.5rem; color:var(--cream); text-decoration:none; letter-spacing:.1em; }
-    .mobile-menu .close-btn { position:absolute; top:24px; right:28px; font-size:2rem; color:var(--orange); cursor:pointer; background:none; border:none; }
-    .mobile-menu .mob-cta { font-size:1rem; padding:14px 40px; background:linear-gradient(135deg,var(--orange),var(--amber)); color:var(--bg); border-radius:50px; font-weight:700; }
-    @media(max-width:640px){ nav { padding:12px 20px; } .nav-links { display:none; } .hamburger { display:flex; } }
+    .mobile-menu a { font-family:'Noto Serif KR',serif; font-size:1.5rem; color:#fdf0f3; text-decoration:none; letter-spacing:.1em; border-bottom:1px solid rgba(212,84,122,.2); padding-bottom:12px; width:200px; text-align:center; }
+    .mobile-menu a:last-of-type { border-bottom:none; }
+    .mobile-menu .close-btn { position:absolute; top:24px; right:28px; font-size:2rem; color:var(--pink-s); cursor:pointer; background:none; border:none; }
+    .mobile-menu .mob-cta { margin-top:4px; font-size:1rem; padding:14px 40px; background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; border-radius:50px; font-weight:700; border-bottom:none !important; }
+    @media(max-width:640px){ nav{padding:12px 20px;} .nav-links{display:none;} .hamburger{display:flex;} }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height:100vh;
       background:
-        radial-gradient(ellipse at 70% 50%, rgba(253,209,8,.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 10% 80%, rgba(253,209,8,.12) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,84,122,.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 5% 80%, rgba(240,180,200,.15) 0%, transparent 45%),
         var(--bg);
       display:flex; align-items:center; justify-content:center;
-      padding:120px 60px 80px;
-      position:relative; overflow:hidden;
+      padding:120px 60px 80px; overflow:hidden;
     }
-    .hero-inner {
-      max-width:1000px; width:100%;
-      display:flex; align-items:center; justify-content:space-between; gap:60px;
-    }
-    .hero-text { flex:1; text-align:left; }
-    .hero-visual { flex-shrink:0; width:380px; }
-    .hero-visual img {
-      width:100%; border-radius:50%;
-      box-shadow: 0 20px 60px rgba(13,27,75,.4), 0 0 0 2px rgba(253,209,8,.2);
-      animation: float 4s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform:translateY(0); }
-      50%      { transform:translateY(-14px); }
-    }
-
+    .hero-inner { max-width:1000px; width:100%; display:flex; align-items:center; justify-content:space-between; gap:60px; }
+    .hero-visual { flex-shrink:0; width:360px; }
+    .hero-visual img { width:100%; border-radius:50%; box-shadow:0 20px 60px rgba(212,84,122,.3), 0 0 0 3px rgba(212,84,122,.15); animation:float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+    .hero-text { flex:1; }
     .hero-tag {
       display:inline-flex; align-items:center; gap:8px;
-      background:rgba(253,209,8,.12); border:1px solid rgba(253,209,8,.3);
-      color:var(--orange-soft); font-size:.75rem; letter-spacing:.18em;
-      padding:7px 20px; border-radius:99px; margin-bottom:28px; font-weight:600;
+      background:var(--pink-p); border:1px solid rgba(212,84,122,.25);
+      color:var(--pink); font-size:.75rem; letter-spacing:.18em;
+      padding:7px 20px; border-radius:99px; margin-bottom:24px; font-weight:600;
     }
-    .hero-tag::before { content:'♪'; font-size:.9rem; color:var(--amber); }
+    .hero-tag::before { content:'♪'; color:var(--pink-s); }
+    .hero h1 { font-family:'Noto Serif KR',serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:600; line-height:1.45; margin-bottom:18px; color:var(--brown); }
+    .hero h1 span { color:var(--pink); }
+    .hero-desc { font-size:clamp(.88rem,1.6vw,1rem); color:var(--brown-m); max-width:460px; margin:0 0 28px; font-weight:300; line-height:1.9; }
+    .hero-moments { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+    .hero-moment-chip { background:#3d1a2e; border:2px solid transparent; border-radius:14px; padding:10px 18px; font-size:.82rem; color:#ffffff; font-family:'Noto Serif KR',serif; font-weight:600; display:inline-flex; flex-direction:column; align-items:center; gap:4px; cursor:default; transition:all .2s; }
+    .hero-moment-chip:hover { border-color:#f0b8d0; color:#f0b8d0; }
 
-    .hero h1 {
-      font-family:'Noto Serif KR',serif;
-      font-size:clamp(1.8rem,4vw,3.2rem);
-      font-weight:600; line-height:1.4; margin-bottom:20px; color:var(--cream);
+    /* 히어로 샘플 미리보기 */
+    .hero-sample-label { font-size:.75rem; color:var(--brown-s); letter-spacing:.15em; margin-bottom:12px; font-family:'Noto Serif KR',serif; }
+    .hero-sample-row { display:flex; gap:12px; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch; }
+    .hero-sample-card {
+      display:flex; flex-shrink:0; align-items:center; gap:12px;
+      background:#f5e8ed; border:1px solid rgba(212,84,122,.25);
+      border-radius:14px; padding:10px 14px; text-decoration:none; width:210px;
+      transition:background .2s;
     }
-    .hl-orange { color:var(--orange); }
-    .hl-amber  { color:var(--amber-light); }
+    .hero-sample-card:hover { background:#f0d8e2; }
+    .hero-sample-thumb { position:relative; flex-shrink:0; width:66px; height:44px; border-radius:8px; overflow:hidden; }
+    .hero-sample-thumb img { width:100%; height:100%; object-fit:cover; }
+    .hero-sample-thumb .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.38); }
+    .hero-sample-info p:first-child { font-size:.66rem; color:var(--pink); letter-spacing:.06em; margin-bottom:4px; }
+    .hero-sample-info p:last-child { font-size:.82rem; color:var(--brown); font-family:'Noto Serif KR',serif; }
 
-    .hero-desc {
-      font-size:clamp(.88rem,1.6vw,1rem);
-      color:var(--cream-dim); max-width:480px;
-      margin:0 0 36px; font-weight:300; line-height:1.9;
-    }
-    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
-
-    .btn-primary {
-      display:inline-block;
-      background:linear-gradient(135deg, var(--orange), var(--amber));
-      color:#0d1b4b; font-size:1rem; font-weight:700;
-      padding:16px 44px; border-radius:99px; text-decoration:none;
-      box-shadow:0 8px 28px rgba(253,209,8,.4); transition:transform .2s, box-shadow .2s;
-    }
-    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(253,209,8,.6); }
-    .btn-outline {
-      display:inline-block; color:var(--cream-dim); font-size:.95rem;
-      text-decoration:none; border:1.5px solid rgba(253,240,220,.2);
-      padding:15px 36px; border-radius:99px; transition:border-color .2s, color .2s;
-    }
-    .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
-
-    .hero-icons { display:flex; gap:10px; flex-wrap:wrap; }
-    .hero-icon-chip {
-      display:flex; align-items:center; gap:7px;
-      background:var(--bg-card); border:1px solid rgba(253,209,8,.2);
-      border-radius:99px; padding:8px 16px;
-      font-size:.78rem; color:var(--cream-soft);
-      transition: border-color .2s;
-    }
-    .hero-icon-chip:hover { border-color:var(--orange); }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+    .btn-primary { display:inline-block; background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; font-size:1rem; font-weight:700; padding:15px 40px; border-radius:99px; text-decoration:none; box-shadow:0 8px 28px rgba(212,84,122,.35); transition:transform .2s,box-shadow .2s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(212,84,122,.5); }
+    .btn-outline { display:inline-block; color:var(--brown-m); font-size:.93rem; text-decoration:none; border:1.5px solid rgba(74,24,40,.2); padding:14px 30px; border-radius:99px; transition:border-color .2s,color .2s; }
+    .btn-outline:hover { border-color:var(--pink); color:var(--pink); }
 
     @media(max-width:768px){
-      .hero { padding:100px 24px 60px; }
-      .hero-inner { flex-direction:column; text-align:center; gap:36px; }
-      .hero-text { text-align:center; }
-      .hero-visual { width:240px; }
-      .hero-desc { margin:0 auto 36px; }
-      .hero-actions { justify-content:center; }
-      .hero-icons { justify-content:center; }
+      .hero{padding:100px 24px 60px;}
+      .hero-inner{flex-direction:column; gap:32px; text-align:center;}
+      .hero-visual{width:220px;}
+      .hero-desc{margin:0 auto 28px;}
+      .hero-moments,.hero-actions{justify-content:center;}
+      .hero-sample-row{justify-content:center;}
     }
 
     /* STATS */
-    .stats {
-      background: linear-gradient(135deg, #0a1640 0%, #0d1b4b 100%);
-      border-top:1px solid rgba(253,209,8,.15);
-      border-bottom:1px solid rgba(253,209,8,.15);
-      padding:52px 24px;
-    }
-    .stats-grid { max-width:800px; margin:0 auto; display:flex; justify-content:center; flex-wrap:wrap; }
-    .stat-item { flex:1; min-width:150px; text-align:center; padding:16px 24px; border-right:1px solid rgba(253,209,8,.15); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+    .stats { background:linear-gradient(135deg,var(--pink) 0%,var(--rose) 100%); padding:44px 24px; }
+    .stats-grid { max-width:800px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; }
+    .stat-item { flex:1; min-width:130px; text-align:center; padding:12px 18px; border-right:1px solid rgba(255,255,255,.2); }
     .stat-item:last-child { border-right:none; }
-    .stat-num { font-family:'Noto Serif KR',serif; font-size:2rem; font-weight:600; color:var(--amber-light); }
-    .stat-label { font-size:.78rem; color:var(--cream-dim); letter-spacing:.1em; margin-top:4px; }
+    .stat-num { font-family:'Noto Serif KR',serif; font-size:1.8rem; font-weight:600; color:#fff; }
+    .stat-label { font-size:.73rem; color:rgba(255,255,255,.75); letter-spacing:.1em; margin-top:4px; }
+    @media(max-width:640px){ .stat-item{border-right:none; border-bottom:1px solid rgba(255,255,255,.15);} }
 
     /* COMMON */
-    .container { max-width:1000px; margin:0 auto; }
-    .sec-tag { font-size:.72rem; letter-spacing:.22em; color:var(--orange); font-weight:700; margin-bottom:12px; }
-    .sec-title { font-family:'Noto Serif KR',serif; font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:600; margin-bottom:14px; color:var(--cream); }
-    .sec-sub { color:var(--cream-dim); font-size:.95rem; max-width:560px; }
+    .container { max-width:900px; margin:0 auto; }
+    .section-label { font-size:.72rem; letter-spacing:.22em; font-weight:600; text-transform:uppercase; margin-bottom:10px; }
+    .section-title { font-family:'Noto Serif KR',serif; font-size:clamp(1.5rem,3.5vw,2.1rem); font-weight:600; margin-bottom:12px; line-height:1.4; }
+    .section-sub { font-size:.93rem; font-weight:300; max-width:520px; }
+    .divider { width:48px; height:1px; margin:18px 0 0; }
 
-    /* SERVICES */
-    .services { padding:100px 24px; }
-    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin-top:52px; }
-    .service-card {
-      background:var(--bg-card); border:1.5px solid rgba(253,209,8,.1);
-      border-radius:20px; padding:30px 24px;
-      transition:transform .25s, border-color .25s, box-shadow .25s;
+    /* SERVICES — 다크 로즈 */
+    .services { background:var(--dark1); padding:90px 24px; position:relative; overflow:hidden; }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:48px; }
+    .service-card { background:rgba(255,255,255,.07); border:1px solid rgba(212,84,122,.2); border-radius:18px; padding:30px 26px; transition:transform .2s,box-shadow .2s,background .2s; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(212,84,122,.2); background:rgba(255,255,255,.12); }
+    .service-icon { font-size:1.8rem; margin-bottom:14px; }
+    .service-card h3 { font-family:'Noto Serif KR',serif; font-size:1rem; color:#f5e8ed; margin-bottom:8px; }
+    .service-card p { font-size:.87rem; color:#c0a0b0; font-weight:300; line-height:1.75; }
+    @media(max-width:600px){
+      .service-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
+      .service-card { padding:18px 14px; border-radius:14px; }
+      .service-icon { font-size:1.4rem; margin-bottom:8px; }
+      .service-card h3 { font-size:.88rem; }
+      .service-card p { font-size:.78rem; line-height:1.6; }
     }
-    .service-card:hover { transform:translateY(-5px); border-color:var(--orange); box-shadow:0 12px 32px rgba(253,209,8,.2); }
-    .svc-icon { font-size:2rem; margin-bottom:14px; }
-    .service-card h3 { font-family:'Noto Serif KR',serif; font-size:1rem; color:var(--cream); margin-bottom:8px; }
-    .service-card p { font-size:.82rem; color:var(--cream-dim); line-height:1.75; }
 
-    /* PROCESS */
-    .process { padding:100px 24px; background:var(--bg-card); }
-    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:52px; position:relative; }
-    .process-grid::before {
-      content:''; position:absolute; top:35px; left:12%; right:12%; height:2px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.3), rgba(255,255,255,.3), transparent);
-    }
-    .process-step { text-align:center; padding:0 16px; }
-    .step-circle {
-      width:70px; height:70px; border-radius:50%;
-      background:#ffffff;
-      display:flex; align-items:center; justify-content:center;
-      margin:0 auto 20px; font-family:'Noto Serif KR',serif; font-size:1.3rem; font-weight:600; color:#0d1b4b;
-      box-shadow:0 6px 20px rgba(255,255,255,.2);
-    }
-    .process-step h3 { font-family:'Noto Serif KR',serif; font-size:.95rem; color:var(--cream); margin-bottom:8px; }
-    .process-step p { font-size:.8rem; color:var(--cream-dim); line-height:1.7; }
+    /* STEPS — 다크 딥로즈 */
+    .steps { background:var(--dark2); padding:90px 24px; position:relative; overflow:hidden; }
+    .step-list { display:flex; flex-direction:column; margin-top:48px; position:relative; max-width:640px; }
+    .step-list::before { content:''; position:absolute; left:27px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--pink),transparent); }
+    .step-item { display:flex; gap:24px; padding-bottom:36px; }
+    .step-num { flex-shrink:0; width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,.07); border:1px solid rgba(212,84,122,.45); display:flex; align-items:center; justify-content:center; font-family:'Noto Serif KR',serif; font-size:1.1rem; color:var(--pink-s); font-weight:600; position:relative; z-index:1; }
+    .step-content h3 { font-family:'Noto Serif KR',serif; font-size:1rem; color:#f5e8ed; margin-bottom:5px; margin-top:12px; }
+    .step-content p { font-size:.87rem; color:#c0a0b0; font-weight:300; line-height:1.75; }
 
-    /* USAGE */
-    .usage { padding:100px 24px; }
-    .usage-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; margin-top:52px; }
-    .usage-card {
-      background:var(--bg-card); border:1.5px solid rgba(253,209,8,.1);
-      border-radius:18px; padding:28px 16px; text-align:center;
-      transition:border-color .2s, box-shadow .2s;
-    }
-    .usage-card:hover { border-color:var(--orange); box-shadow:0 6px 20px rgba(253,209,8,.15); }
-    .usage-icon { font-size:2rem; margin-bottom:12px; }
-    .usage-card h4 { font-size:.88rem; color:var(--cream); margin-bottom:6px; font-weight:600; }
-    .usage-card p { font-size:.76rem; color:var(--cream-dim); line-height:1.65; }
+    /* SAMPLE — 다크 배경 */
+    .sample { background:var(--dark2); padding:90px 24px; text-align:center; }
+    .sample-tabs { display:inline-flex; gap:10px; margin-bottom:36px; }
+    .tab-btn { padding:10px 24px; font-family:'Noto Sans KR',sans-serif; font-size:.88rem; cursor:pointer; border:2px solid transparent; background:#3d1a2e; color:#ffffff; border-radius:14px; font-weight:600; letter-spacing:.05em; transition:all .2s; }
+    .tab-btn.active { border-color:#f0b8d0; color:#f0b8d0; }
+    .sample-video-wrap { max-width:680px; margin:0 auto 20px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+    .sample-ratio { position:relative; padding-bottom:56.25%; height:0; }
+    .sample-ratio iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+    .sample-title { font-size:.9rem; color:var(--pink-s); margin-bottom:8px; }
+    .sample-desc { font-size:.85rem; color:#c0a0b0; max-width:560px; margin:0 auto; line-height:1.8; }
 
     /* PRICING */
-    .pricing { padding:100px 24px; background:var(--bg-card); text-align:center; }
-    .price-wrap {
-      max-width:520px; margin:52px auto 0;
-      background:var(--bg-card2); border:2px solid rgba(253,209,8,.25);
-      border-radius:28px; padding:52px 40px; position:relative; overflow:hidden;
-    }
-    .price-wrap::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--orange), var(--amber)); }
-    .price-badge {
-      display:inline-block; background:rgba(253,209,8,.12); border:1px solid rgba(253,209,8,.3);
-      color:var(--orange-soft); font-size:.72rem; letter-spacing:.15em; padding:5px 18px; border-radius:99px; margin-bottom:24px; font-weight:700;
-    }
-    .price-num { font-family:'Noto Serif KR',serif; font-size:3.2rem; font-weight:600; color:#ffffff; line-height:1; }
-    .price-unit { font-size:1.1rem; color:var(--cream-dim); }
-    .price-per { font-size:.82rem; color:var(--cream-dim); margin:10px 0 28px; }
-    .price-split {
-      background:rgba(253,209,8,.08); border:1px solid rgba(253,209,8,.2);
-      border-radius:14px; padding:18px 22px; font-size:.85rem; color:var(--cream-soft); margin-bottom:28px; line-height:2;
-    }
-    .price-split strong { color:var(--orange); }
-    .price-features { list-style:none; text-align:left; margin-bottom:36px; }
-    .price-features li { font-size:.85rem; color:var(--cream-dim); padding:8px 0; border-bottom:1px solid rgba(253,240,220,.07); display:flex; gap:10px; align-items:flex-start; }
-    .price-features li::before { content:'✦'; color:var(--orange); flex-shrink:0; font-size:.7rem; margin-top:4px; }
-    .price-account { font-size:.78rem; color:var(--cream-dim); margin-bottom:28px; }
+    .pricing { background:var(--dark1); padding:90px 24px; text-align:center; position:relative; overflow:hidden; }
+    .pricing .section-title { color:#f5e8ed; }
+    .pricing .section-sub { color:#c0a0b0; }
+    .price-card { background:rgba(255,255,255,.07); border:1.5px solid rgba(212,84,122,.3); border-radius:26px; padding:48px 36px; max-width:500px; margin:48px auto 0; position:relative; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.3); }
+    .price-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pink),var(--pink-s)); }
+    .event-badge { display:inline-block; background:rgba(212,84,122,.2); border:1px solid rgba(212,84,122,.4); color:var(--pink-s); font-size:.72rem; letter-spacing:.12em; padding:5px 16px; border-radius:99px; margin-bottom:16px; font-weight:700; }
+    .price-original { font-size:1.1rem; color:#8a6070; text-decoration:line-through; margin-bottom:4px; }
+    .price-main { font-family:'Noto Serif KR',serif; font-size:3rem; color:var(--pink-s); font-weight:600; line-height:1; margin-bottom:4px; }
+    .price-unit { font-size:.9rem; color:#c0a0b0; margin-bottom:6px; }
+    .price-notice { font-size:.8rem; color:#c0a0b0; margin-bottom:24px; }
+    .price-detail { background:rgba(0,0,0,.2); border-radius:14px; padding:18px 22px; text-align:left; margin-bottom:20px; }
+    .price-detail p { font-size:.88rem; color:#d4b0c0; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .price-detail p:last-child { border-bottom:none; }
+    .price-detail strong { color:var(--pink-s); font-weight:600; }
+    .price-note { font-size:.8rem; color:#8a6070; margin-bottom:28px; }
 
     /* CONTACT */
-    .contact {
-      padding:100px 24px; text-align:center;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(253,209,8,.15) 0%, transparent 60%),
-        var(--bg);
-    }
-    .contact-grid { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:40px 0; }
-    .contact-card {
-      background:var(--bg-card); border:1.5px solid rgba(253,209,8,.15);
-      border-radius:18px; padding:28px 36px; min-width:200px;
-      transition:box-shadow .2s, transform .2s, border-color .2s;
-    }
-    .contact-card:hover { box-shadow:0 8px 28px rgba(253,209,8,.2); transform:translateY(-3px); border-color:var(--orange); }
-    a.contact-card-link { display:block; text-decoration:none; color:inherit; }
-    a.contact-card-link .contact-card { height:100%; }
-    .contact-icon { font-size:2rem; margin-bottom:10px; }
-    .contact-card h4 { font-size:.82rem; color:var(--cream-dim); letter-spacing:.08em; margin-bottom:8px; }
-    .contact-card a { color:var(--orange-soft); text-decoration:none; font-size:.92rem; font-weight:600; }
-    .contact-card a:hover { color:var(--amber-light); }
-    .contact-card-text { color:var(--orange-soft); font-size:.92rem; font-weight:600; }
-    a.contact-card-link:hover .contact-card-text { color:var(--amber-light); }
+    .contact { background:var(--dark2); padding:90px 24px; text-align:center; position:relative; overflow:hidden; border-top:1px solid rgba(212,84,122,.15); }
+    .contact .section-title { color:#f5e8ed; }
+    .contact .section-sub { color:#c0a0b0; }
+    .contact-links { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:32px 0; }
+    .contact-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:99px; font-size:.92rem; text-decoration:none; font-weight:600; transition:transform .2s,box-shadow .2s; }
+    .contact-btn:hover { transform:translateY(-2px); }
+    .contact-btn.form { background:linear-gradient(135deg,var(--pink),var(--pink-s)); color:#fff; box-shadow:0 4px 16px rgba(212,84,122,.3); }
+    .contact-btn.youtube { background:#ff0000; color:#fff; }
+    .contact-btn.kakao { background:#FAE100; color:#3C1E1E; }
+    .account-info { font-size:.83rem; color:#8a6070; margin-top:20px; line-height:2.2; }
 
-    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-    .form-btn {
-      display:inline-flex; align-items:center; gap:10px;
-      background:#ffffff; color:#0d1b4b; font-weight:700;
-      padding:16px 40px; border-radius:99px; text-decoration:none;
-      font-size:1rem; box-shadow:0 6px 24px rgba(255,255,255,.25); transition:transform .2s, box-shadow .2s;
-    }
-    .form-btn:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(255,255,255,.35); }
-    .kakao-btn {
-      display:inline-flex; align-items:center; gap:10px;
-      background:#FAE100; color:#3C1E1E; font-weight:700;
-      padding:16px 40px; border-radius:99px; text-decoration:none;
-      font-size:1rem; box-shadow:0 6px 24px rgba(250,225,0,.25); transition:transform .2s, box-shadow .2s;
-    }
-    .kakao-btn:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(250,225,0,.4); }
+    /* SECTION FLORAL */
+    .section-floral { position:absolute; pointer-events:none; z-index:0; overflow:visible; }
+    .floral-tr { top:0; right:0; width:220px; height:220px; }
+    .floral-bl { bottom:0; left:0; width:220px; height:220px; }
+    .floral-br { bottom:0; right:0; width:220px; height:220px; }
+    @media(max-width:600px){ .floral-tr,.floral-bl,.floral-br { width:150px; height:150px; } }
+    .services .container, .steps .container, .pricing .container, .contact .container, .sample .container { position:relative; z-index:1; }
 
-    footer {
-      background:#0c0a05; color:rgba(253,240,220,.3);
-      text-align:center; padding:32px 24px; font-size:.78rem; line-height:2;
-      border-top:1px solid rgba(253,209,8,.1);
-    }
-    footer a { color:var(--orange-soft); text-decoration:none; }
-    footer a:hover { color:var(--amber-light); }
-
-    /* 음표 장식 */
-    .note { color:var(--orange); opacity:.4; font-size:.9rem; }
-
-    @media(max-width:640px){
-      .process-grid { grid-template-columns:1fr 1fr; gap:24px; }
-      .step-circle { width:54px; height:54px; font-size:1.1rem; }
-      .process-grid::before { display:none; }
-      .stats-grid { flex-direction:row; flex-wrap:wrap; }
-      .stats-grid { display:grid; grid-template-columns:1fr 1fr; }
-      .stat-item { width:auto; box-sizing:border-box; border-right:none; border-bottom:1px solid rgba(253,209,8,.12); display:flex; flex-direction:column; justify-content:center; align-items:center; }
-      .price-wrap { padding:36px 24px; }
-      .service-grid { grid-template-columns:1fr 1fr; gap:10px; }
-      .service-card { padding:20px 14px; }
-      .usage-grid { grid-template-columns:1fr 1fr; gap:10px; }
-      .usage-card { padding:20px 14px; }
-    }
+    footer { background:var(--brown); color:rgba(253,240,243,.4); text-align:center; padding:28px 24px; font-size:.77rem; line-height:2; }
+    footer a { color:rgba(212,84,122,.7); text-decoration:none; }
+    footer a:hover { color:var(--pink-s); }
   </style>
 </head>
 <body>
@@ -319,302 +224,315 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="close-btn" onclick="closeMobileMenu()">✕</button>
     <a href="#services" onclick="closeMobileMenu()">서비스</a>
-    <a href="#process" onclick="closeMobileMenu()">제작과정</a>
-    <a href="#usage" onclick="closeMobileMenu()">활용범위</a>
+    <a href="#how" onclick="closeMobileMenu()">제작과정</a>
+    <a href="#sample" onclick="closeMobileMenu()">샘플송</a>
     <a href="#pricing" onclick="closeMobileMenu()">가격</a>
     <a href="#contact" onclick="closeMobileMenu()">문의</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" class="mob-cta" onclick="closeMobileMenu()">📋 신청하기</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="mob-cta" onclick="closeMobileMenu()">✉ 신청하기</a>
   </div>
 
   <nav>
     <a href="#" class="nav-logo">
-      <img src="storesong4u_logo.png" alt="스토어송포유 로고" style="width:44px;height:44px;border-radius:10px;object-fit:cover;" />
-      <span class="nav-brand">스토어<em>송</em>포유</span>
+      <img src="logo_new.png" alt="블레송포유 로고" />
+      <span class="nav-brand">블레<em>송</em>포유</span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">서비스</a></li>
-      <li><a href="#process">제작과정</a></li>
-      <li><a href="#usage">활용범위</a></li>
+      <li><a href="#how">제작과정</a></li>
+      <li><a href="#sample">샘플송</a></li>
       <li><a href="#pricing">가격</a></li>
       <li><a href="#contact">문의</a></li>
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" class="nav-cta">신청하기</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="nav-cta">신청하기</a></li>
     </ul>
-    <button class="hamburger" onclick="openMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" onclick="openMobileMenu()"><span></span><span></span><span></span></button>
   </nav>
   <script>
     function openMobileMenu(){ document.getElementById('mobileMenu').classList.add('open'); }
     function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); }
   </script>
 
+  <!-- HERO -->
   <section class="hero">
-
-    <!-- 히어로 음악 장식 -->
-    <svg class="music-deco music-deco-tr" width="280" height="320" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- 음자리표 -->
-      <path d="M40 240 C40 200 60 170 80 150 C100 130 110 100 100 70 C90 40 65 30 50 50 C35 70 45 100 65 105 C85 110 95 90 85 75" stroke="#fdd108" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <circle cx="52" cy="252" r="8" fill="#fdd108"/>
-      <circle cx="52" cy="228" r="8" fill="#fdd108"/>
-      <!-- 큰 8분음표 -->
-      <ellipse cx="160" cy="200" rx="12" ry="9" fill="white" transform="rotate(-20 160 200)"/>
-      <line x1="171" y1="196" x2="171" y2="140" stroke="white" stroke-width="3"/>
-      <path d="M171 140 Q210 150 205 170" stroke="white" stroke-width="2.5" fill="none"/>
-      <!-- 작은 4분음표 -->
-      <ellipse cx="220" cy="260" rx="9" ry="7" fill="#fdd108" transform="rotate(-20 220 260)"/>
-      <line x1="228" y1="257" x2="228" y2="210" stroke="#fdd108" stroke-width="2.5"/>
-      <!-- 작은 음표 -->
-      <ellipse cx="130" cy="100" rx="7" ry="5" fill="white" transform="rotate(-20 130 100)"/>
-      <line x1="136" y1="98" x2="136" y2="62" stroke="white" stroke-width="2"/>
-      <!-- 16분음표 두 개 연결 -->
-      <ellipse cx="195" cy="80" rx="7" ry="5" fill="#fdd108" transform="rotate(-20 195 80)"/>
-      <line x1="201" y1="78" x2="201" y2="44" stroke="#fdd108" stroke-width="2"/>
-      <ellipse cx="230" cy="90" rx="7" ry="5" fill="#fdd108" transform="rotate(-20 230 90)"/>
-      <line x1="236" y1="88" x2="236" y2="44" stroke="#fdd108" stroke-width="2"/>
-      <line x1="201" y1="44" x2="236" y2="44" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="201" y1="52" x2="236" y2="52" stroke="#fdd108" stroke-width="2"/>
-      <!-- 악보 줄 5개 -->
-      <line x1="100" y1="280" x2="270" y2="280" stroke="white" stroke-width="1"/>
-      <line x1="100" y1="292" x2="270" y2="292" stroke="white" stroke-width="1"/>
-      <line x1="100" y1="304" x2="270" y2="304" stroke="white" stroke-width="1"/>
-      <line x1="100" y1="316" x2="270" y2="316" stroke="white" stroke-width="1"/>
+    <!-- 음자리표 + 오선지 워터마크 -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <text x="820" y="580" font-size="480" fill="var(--pink)" opacity="0.04" font-family="serif">𝄞</text>
+      <g opacity="0.12" stroke="var(--pink)" stroke-width="1.1" fill="none">
+        <path d="M-20,130 Q180,108 380,142 Q580,178 780,138 Q950,103 1220,128"/>
+        <path d="M-20,148 Q180,126 380,160 Q580,196 780,156 Q950,121 1220,146"/>
+        <path d="M-20,166 Q180,144 380,178 Q580,214 780,174 Q950,139 1220,164"/>
+        <path d="M-20,184 Q180,162 380,196 Q580,232 780,192 Q950,157 1220,182"/>
+        <path d="M-20,202 Q180,180 380,214 Q580,250 780,210 Q950,175 1220,200"/>
+      </g>
+      <g opacity="0.07" stroke="rgba(212,84,122,.6)" stroke-width="0.9" fill="none">
+        <path d="M-20,490 Q200,472 420,502 Q640,532 840,497 Q1020,467 1220,487"/>
+        <path d="M-20,506 Q200,488 420,518 Q640,548 840,513 Q1020,483 1220,503"/>
+        <path d="M-20,522 Q200,504 420,534 Q640,564 840,529 Q1020,499 1220,519"/>
+        <path d="M-20,538 Q200,520 420,550 Q640,580 840,545 Q1020,515 1220,535"/>
+        <path d="M-20,554 Q200,536 420,566 Q640,596 840,561 Q1020,531 1220,551"/>
+      </g>
+      <g fill="rgba(212,84,122,.18)" font-size="30" font-family="serif">
+        <text x="65"  y="116">♩</text><text x="180" y="134">♪</text>
+        <text x="310" y="120">♫</text><text x="480" y="148">♬</text>
+        <text x="600" y="118">♩</text><text x="720" y="140">♪</text>
+        <text x="880" y="112">♫</text><text x="1050" y="130">♬</text>
+      </g>
     </svg>
-    <svg class="music-deco music-deco-bl" width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- 악보 5줄 -->
-      <line x1="0" y1="20" x2="200" y2="20" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="36" x2="200" y2="36" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="52" x2="200" y2="52" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="68" x2="200" y2="68" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="84" x2="200" y2="84" stroke="white" stroke-width="1"/>
-      <!-- 음표들 -->
-      <ellipse cx="40" cy="52" rx="9" ry="7" fill="#fdd108" transform="rotate(-15 40 52)"/>
-      <line x1="48" y1="49" x2="48" y2="16" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="90" cy="36" rx="9" ry="7" fill="white" transform="rotate(-15 90 36)"/>
-      <line x1="98" y1="33" x2="98" y2="0" stroke="white" stroke-width="2.5"/>
-      <ellipse cx="140" cy="68" rx="9" ry="7" fill="#fdd108" transform="rotate(-15 140 68)"/>
-      <line x1="148" y1="65" x2="148" y2="30" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="175" cy="52" rx="7" ry="5" fill="white" transform="rotate(-15 175 52)"/>
-      <line x1="181" y1="50" x2="181" y2="20" stroke="white" stroke-width="2"/>
-    </svg>
-    <div class="hero-inner">
+    <div class="hero-inner" style="position:relative;z-index:1;">
       <div class="hero-visual">
-        <img src="storesong4u_logo.png" alt="StoreSong4u 로고" />
+        <img src="logo_new.png" alt="블레송포유" />
       </div>
       <div class="hero-text">
-        <div class="hero-tag">우리 가게만의 시그니처 송</div>
-        <h1><span class="hl-amber">노래</span>가 당신의 <span class="hl-orange">브랜드</span>를<br>기억나게 합니다!</h1>
-        <p class="hero-desc">
-          가게의 이야기와 브랜드 가치를 단 하나뿐인 노래로 만들어 드립니다.<br>
-          한 곡의 노래가 고객에게는 특별한 기억이 되고,<br>
-          가게에는 차별화된 브랜드 자산이 됩니다.
-        </p>
-        <div class="hero-actions">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" class="btn-primary">📋 지금 신청하기</a>
-          <a href="#services" class="btn-outline">서비스 알아보기 ↓</a>
+        <div class="hero-tag">세상에 단 하나뿐인 노래</div>
+        <h1>소중한 날의 기억을<br><span>노래</span>에 담아<br>드립니다</h1>
+        <p class="hero-desc">당신의 이야기를, 사랑하는 사람에게 전하는<br>세상에 단 하나뿐인 맞춤 노래를 만들어 드립니다.</p>
+        <div class="hero-moments">
+          <span class="hero-moment-chip">🎂 생일</span>
+          <span class="hero-moment-chip">💍 결혼식·프로포즈</span>
+          <span class="hero-moment-chip">👨‍👩‍👧 부모님 기념일</span>
+          <span class="hero-moment-chip">❤️ 그 모든 순간</span>
         </div>
-        <div class="hero-icons">
-          <div class="hero-icon-chip">🏪 가게 브랜드송</div>
-          <div class="hero-icon-chip">🎵 로고송</div>
-          <div class="hero-icon-chip">🏢 기업 브랜드송</div>
-          <div class="hero-icon-chip">🎁 이벤트·캠페인송</div>
+        <p class="hero-sample-label">▶ 샘플송 미리듣기</p>
+        <div class="hero-sample-row">
+          <a href="#sample" onclick="setTimeout(()=>showSample('anniversary'),100)" class="hero-sample-card">
+            <div class="hero-sample-thumb">
+              <img src="https://img.youtube.com/vi/5oFkdb_81N0/mqdefault.jpg" alt="결혼기념송" />
+              <div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="hero-sample-info">
+              <p>💍 결혼기념송 샘플</p>
+              <p>승선하다</p>
+            </div>
+          </a>
+          <a href="#sample" onclick="setTimeout(()=>showSample('birthday'),100)" class="hero-sample-card">
+            <div class="hero-sample-thumb">
+              <img src="https://img.youtube.com/vi/M9zEatuMx08/mqdefault.jpg" alt="생일축복송" />
+              <div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="hero-sample-info">
+              <p>🎂 생일축복송 (편집본)</p>
+              <p>생일 축복송</p>
+            </div>
+          </a>
+        </div>
+        <div class="hero-actions">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="btn-primary">✉ 지금 신청하기</a>
+          <a href="#sample" class="btn-outline">샘플 듣기 ↓</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- STATS -->
   <div class="stats">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-num">7~10일</div><div class="stat-label">제작 기간</div></div>
+      <div class="stat-item"><div class="stat-num">5~7일</div><div class="stat-label">제작 기간</div></div>
       <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">맞춤 제작</div></div>
-      <div class="stat-item"><div class="stat-num" style="font-size:1.45rem; white-space:nowrap;">Online/Offline</div><div class="stat-label">사용 제한 없음</div></div>
+      <div class="stat-item"><div class="stat-num">무제한</div><div class="stat-label">소장·공유 가능</div></div>
       <div class="stat-item"><div class="stat-num">영구적</div><div class="stat-label">저작권 고객 귀속</div></div>
     </div>
   </div>
 
-  <section class="services" id="services" style="position:relative;">
-
-    <!-- 서비스 음악 장식 -->
-    <svg class="music-deco" style="position:absolute;top:30px;right:30px;width:160px;height:160px;opacity:0.08;" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="40" cy="120" rx="12" ry="9" fill="white" transform="rotate(-20 40 120)"/>
-      <line x1="51" y1="116" x2="51" y2="60" stroke="white" stroke-width="3"/>
-      <path d="M51 60 Q90 70 85 90" stroke="white" stroke-width="2.5" fill="none"/>
-      <ellipse cx="110" cy="100" rx="10" ry="7" fill="#fdd108" transform="rotate(-20 110 100)"/>
-      <line x1="119" y1="97" x2="119" y2="50" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="140" cy="130" rx="8" ry="6" fill="white" transform="rotate(-20 140 130)"/>
-      <line x1="147" y1="127" x2="147" y2="90" stroke="white" stroke-width="2"/>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <!-- 우상단 벚꽃 -->
+    <svg class="section-floral floral-tr" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g opacity="0.32" stroke="#e8a0b8" fill="none">
+        <path d="M220,0 Q175,30 135,75 Q108,108 100,148" stroke-width="1.6"/>
+        <path d="M135,75 Q158,50 188,32" stroke-width="1.1"/>
+        <path d="M115,100 Q140,74 168,58" stroke-width="0.9"/>
+      </g>
+      <g opacity="0.36" fill="none" stroke="#f0b0c8">
+        <g transform="translate(186,30)"><ellipse rx="6" ry="12" transform="rotate(0)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(72)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(144)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(216)" stroke-width="0.9"/><ellipse rx="6" ry="12" transform="rotate(288)" stroke-width="0.9"/><circle r="2.5" stroke-width="0.8"/></g>
+        <g transform="translate(165,56)"><ellipse rx="5" ry="9" transform="rotate(20)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(92)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(164)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(236)" stroke-width="0.8"/><ellipse rx="5" ry="9" transform="rotate(308)" stroke-width="0.8"/><circle r="2" stroke-width="0.7"/></g>
+      </g>
+      <g opacity="0.20" fill="#f0b0c8">
+        <ellipse cx="130" cy="42" rx="4" ry="2.5" transform="rotate(25,130,42)"/>
+        <ellipse cx="100" cy="80" rx="3" ry="1.8" transform="rotate(-15,100,80)"/>
+        <ellipse cx="160" cy="110" rx="3" ry="1.8" transform="rotate(40,160,110)"/>
+      </g>
+    </svg>
+    <!-- 좌하단 벚꽃 -->
+    <svg class="section-floral floral-bl" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g opacity="0.26" stroke="#e8a0b8" fill="none">
+        <path d="M0,220 Q45,188 85,145 Q112,112 120,72" stroke-width="1.6"/>
+        <path d="M85,145 Q62,170 32,188" stroke-width="1.1"/>
+        <path d="M105,120 Q80,146 52,162" stroke-width="0.9"/>
+      </g>
+      <g opacity="0.30" fill="none" stroke="#f0b0c8">
+        <g transform="translate(34,190)"><ellipse rx="5" ry="10" transform="rotate(0)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(72)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(144)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(216)" stroke-width="0.8"/><ellipse rx="5" ry="10" transform="rotate(288)" stroke-width="0.8"/><circle r="2" stroke-width="0.7"/></g>
+        <g transform="translate(54,164)"><ellipse rx="4" ry="8" transform="rotate(15)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(87)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(159)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(231)" stroke-width="0.7"/><ellipse rx="4" ry="8" transform="rotate(303)" stroke-width="0.7"/><circle r="1.8" stroke-width="0.6"/></g>
+      </g>
+      <g opacity="0.16" fill="#f0b0c8">
+        <ellipse cx="90" cy="178" rx="4" ry="2.5" transform="rotate(20,90,178)"/>
+        <ellipse cx="120" cy="140" rx="3" ry="1.8" transform="rotate(-10,120,140)"/>
+      </g>
     </svg>
     <div class="container">
-      <p class="sec-tag">OUR SERVICES</p>
-      <h2 class="sec-title">우리 가게만의 맞춤 브랜드송</h2>
-      <p class="sec-sub">단순한 광고가 아닌, 고객의 기억에 오래 남는 브랜드송을 제작합니다.</p>
+      <div class="section-label" style="color:#e8a0b8;">Our Services</div>
+      <h2 class="section-title" style="color:#f5e8ed;">마음을 담은 맞춤 노래</h2>
+      <p class="section-sub" style="color:#c0a0b0;">어떤 순간이든, 어떤 마음이든 — 당신의 이야기를 선율로 만들어 드립니다.</p>
+      <div class="divider" style="background:linear-gradient(to right,var(--pink),transparent);"></div>
       <div class="service-grid">
-        <div class="service-card"><div class="svc-icon">🏪</div><h3>가게 브랜드송</h3><p>장점, 매력, 추천메뉴, 경영철학, 서비스 마인드 등을 노래로 전달하는 브랜드송</p></div>
-        <div class="service-card"><div class="svc-icon">🎵</div><h3>로고송</h3><p>가게 이름과 슬로건을 짧고 중독성 있게 담은 노래. 컬러링·벨소리로 활용 가능</p></div>
-        <div class="service-card"><div class="svc-icon">🏢</div><h3>기업 브랜드송</h3><p>기업의 가치와 비전을 고객에게 전달하는 홍보 음악</p></div>
-        <div class="service-card"><div class="svc-icon">🎁</div><h3>이벤트·캠페인송</h3><p>신제품 출시, 행사, 시즌 이벤트를 위한 맞춤형 홍보송</p></div>
+        <div class="service-card"><div class="service-icon">💖</div><h3>사랑의 고백송</h3><p>말로는 다 담지 못한 진심을 노래로 전하세요. 연인을 위한 세상에 하나뿐인 고백.</p></div>
+        <div class="service-card"><div class="service-icon">💍</div><h3>프로포즈송</h3><p>영원을 약속하는 가장 특별한 순간을 더욱 빛나게 해줄 설레는 노래.</p></div>
+        <div class="service-card"><div class="service-icon">🎈</div><h3>생일 축하송</h3><p>소중한 사람의 생일을 평생 기억할 노래로 축복해 드립니다.</p></div>
+        <div class="service-card"><div class="service-icon">💐</div><h3>부모님 헌정곡</h3><p>환갑, 칠순, 팔순 — 부모님의 헌신과 사랑에 감사를 담은 특별한 선물.</p></div>
+        <div class="service-card"><div class="service-icon">👰</div><h3>결혼 축가</h3><p>두 사람의 새로운 출발을 축복하는 세상에 단 하나뿐인 감동의 노래.</p></div>
+        <div class="service-card"><div class="service-icon">✨</div><h3>스토리 블레송</h3><p>졸업, 퇴직, 기념일 등 당신만의 모든 특별한 순간을 기념하는 맞춤 노래.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="process" id="process" style="position:relative;">
-
-    <!-- 제작과정 음악 장식 -->
-    <svg class="music-deco" style="position:absolute;bottom:30px;left:30px;width:180px;height:100px;opacity:0.07;" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="30" x2="180" y2="30" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="46" x2="180" y2="46" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="62" x2="180" y2="62" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="78" x2="180" y2="78" stroke="white" stroke-width="1"/>
-      <ellipse cx="50" cy="46" rx="10" ry="8" fill="#fdd108" transform="rotate(-15 50 46)"/>
-      <line x1="59" y1="43" x2="59" y2="10" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="100" cy="62" rx="10" ry="8" fill="white" transform="rotate(-15 100 62)"/>
-      <line x1="109" y1="59" x2="109" y2="22" stroke="white" stroke-width="2.5"/>
-      <ellipse cx="145" cy="30" rx="10" ry="8" fill="#fdd108" transform="rotate(-15 145 30)"/>
-      <line x1="154" y1="27" x2="154" y2="0" stroke="#fdd108" stroke-width="2.5"/>
+  <!-- STEPS -->
+  <section class="steps" id="how">
+    <!-- 우하단 장미 -->
+    <svg class="section-floral floral-br" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g opacity="0.26" stroke="#e8a0b8" fill="none">
+        <path d="M220,220 Q178,185 138,140 Q110,108 102,68" stroke-width="1.6"/>
+        <path d="M138,140 Q162,116 188,98" stroke-width="1.1"/>
+        <path d="M118,115 Q144,90 170,74" stroke-width="0.9"/>
+        <path d="M108,85 Q88,65 108,44 Q128,65 108,85Z" stroke-width="0.8"/>
+        <path d="M140,112 Q118,90 140,68 Q162,90 140,112Z" stroke-width="0.7"/>
+      </g>
+      <g opacity="0.30" fill="none" stroke="#f0b0c8">
+        <g transform="translate(186,96)"><circle r="9" stroke-width="0.8"/><path d="M0,-9 Q7,-5 7,0 Q7,5 0,9 Q-7,5 -7,0 Q-7,-5 0,-9Z" stroke-width="0.7"/></g>
+        <g transform="translate(168,72)"><circle r="7" stroke-width="0.7"/><path d="M0,-7 Q5,-4 5,0 Q5,4 0,7 Q-5,4 -5,0 Q-5,-4 0,-7Z" stroke-width="0.6"/></g>
+      </g>
+      <g opacity="0.18" fill="#f0b0c8">
+        <ellipse cx="130" cy="178" rx="4" ry="2.5" transform="rotate(20,130,178)"/>
+        <ellipse cx="90" cy="150" rx="3" ry="1.8" transform="rotate(-10,90,150)"/>
+        <ellipse cx="170" cy="130" rx="3" ry="1.8" transform="rotate(35,170,130)"/>
+      </g>
     </svg>
     <div class="container">
-      <p class="sec-tag">HOW IT WORKS</p>
-      <h2 class="sec-title">제작 과정</h2>
-      <p class="sec-sub">사장님의 이야기를 귀기울여 듣는 것으로 시작합니다.</p>
-      <div class="process-grid">
-        <div class="process-step"><div class="step-circle">1</div><h3>사연 접수</h3><p>구글폼 또는 카카오 오픈채팅으로 가게 이야기와 원하시는 방향을 알려주세요.</p></div>
-        <div class="process-step"><div class="step-circle">2</div><h3>가사 작업</h3><p>브랜드 철학과 스토리를 담은 시적인 가사를 작성합니다.</p></div>
-        <div class="process-step"><div class="step-circle">3</div><h3>작곡 및 제작</h3><p>가사에 어울리는 멜로디와 편곡으로 완성도 높은 노래를 만듭니다.</p></div>
-        <div class="process-step"><div class="step-circle">4</div><h3>완성본 전달</h3><p>MP3 파일 및 사장님 전용 비공개 링크로 전달. 제작 기간 약 7~10일.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="usage" id="usage" style="position:relative;">
-    <!-- 활용 음악 장식 -->
-    <svg style="position:absolute;top:20px;right:20px;width:160px;height:140px;opacity:0.07;pointer-events:none;" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="30" cy="110" rx="10" ry="7" fill="#fdd108" transform="rotate(-15 30 110)"/>
-      <line x1="40" y1="107" x2="40" y2="60" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="40" y1="60" x2="70" y2="52" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="60" cy="92" rx="10" ry="7" fill="white" transform="rotate(-15 60 92)"/>
-      <line x1="70" y1="89" x2="70" y2="42" stroke="white" stroke-width="2.5"/>
-      <ellipse cx="105" cy="75" rx="9" ry="6" fill="#fdd108" transform="rotate(-15 105 75)"/>
-      <line x1="114" y1="72" x2="114" y2="28" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="114" y1="28" x2="140" y2="22" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="114" y1="36" x2="140" y2="30" stroke="#fdd108" stroke-width="2.5"/>
-    </svg>
-    <div class="container">
-      <p class="sec-tag">HOW TO USE</p>
-      <h2 class="sec-title">이렇게 활용하세요</h2>
-      <p class="sec-sub">한 곡의 노래, 다양한 채널에서 무한 활용</p>
-      <div class="usage-grid">
-        <div class="usage-card"><div class="usage-icon">🎵</div><h4>매장 BGM</h4><p>매일 흘러나오는 우리 가게만의 시그니처 음악</p></div>
-        <div class="usage-card"><div class="usage-icon">📱</div><h4>SNS 홍보</h4><p>인스타 릴스, 유튜브 쇼츠 영상 음원으로 활용</p></div>
-        <div class="usage-card"><div class="usage-icon">💻</div><h4>홈페이지·유튜브</h4><p>공식 채널에서 브랜드 아이덴티티를 음악으로</p></div>
-        <div class="usage-card"><div class="usage-icon">📞</div><h4>ARS 컬러링</h4><p>전화 연결음으로 브랜드를 자연스럽게 각인</p></div>
-        <div class="usage-card"><div class="usage-icon">🎪</div><h4>행사·이벤트</h4><p>오픈 행사, 기념일, 시즌 이벤트에 활용</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing" style="position:relative;">
-    <!-- 가격 음악 장식 -->
-    <svg style="position:absolute;bottom:30px;left:24px;width:90px;height:160px;opacity:0.06;pointer-events:none;" viewBox="0 0 90 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M45 140 C45 110 60 90 70 72 C80 54 78 30 65 18 C52 6 35 12 30 28 C25 44 38 60 52 62 C66 64 72 48 62 38" stroke="#fdd108" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-      <circle cx="33" cy="148" r="7" fill="#fdd108"/>
-      <circle cx="33" cy="130" r="7" fill="#fdd108"/>
-    </svg>
-    <svg style="position:absolute;top:40px;right:20px;width:140px;height:60px;opacity:0.06;pointer-events:none;" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="15" x2="140" y2="15" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="27" x2="140" y2="27" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="39" x2="140" y2="39" stroke="white" stroke-width="1"/>
-      <ellipse cx="50" cy="44" rx="9" ry="6" fill="white" transform="rotate(-15 50 44)"/>
-      <line x1="59" y1="41" x2="59" y2="8" stroke="white" stroke-width="2"/>
-      <ellipse cx="95" cy="36" rx="9" ry="6" fill="#fdd108" transform="rotate(-15 95 36)"/>
-      <line x1="104" y1="33" x2="104" y2="0" stroke="#fdd108" stroke-width="2"/>
-    </svg>
-    <div class="container">
-      <p class="sec-tag">PRICING</p>
-      <h2 class="sec-title">제작 비용</h2>
-      <p class="sec-sub" style="margin:0 auto;">합리적인 가격으로 우리 가게만의 노래를 만들어 드립니다.</p>
-      <div class="price-wrap">
-        <div class="price-badge">오픈 기념 사장님 응원 특별가</div>
-        <div style="font-size:1.25rem; font-weight:700; color:#ffffff; margin:12px 0 8px; letter-spacing:.02em;">가게 브랜드송</div>
-        <div style="font-family:'Noto Serif KR',serif; font-size:1.6rem; font-weight:600; color:var(--cream-dim); text-decoration:line-through; margin-bottom:4px;">20만원</div>
-        <div class="price-num">15<span class="price-unit">만원</span></div>
-        <div style="margin:10px 0 4px; font-size:.9rem; color:var(--amber-light); font-weight:700;">+ 로고송 무료 제작지원 <span style="font-weight:400;color:var(--cream-dim);">(3만원 상당)</span></div>
-        <p class="price-per">1곡 기준</p>
-        <div class="price-split">
-          <strong>계약금 5만원</strong> 입금 → 제작 시작<br>
-          완성 후 고객 컨펌 → 승인 시 <strong>잔금 10만원</strong> → 음원 전달
+      <div class="section-label" style="color:#e8a0b8;">How It Works</div>
+      <h2 class="section-title" style="color:#f5e8ed;">이렇게 만들어집니다</h2>
+      <p class="section-sub" style="color:#c0a0b0;">신청부터 완성까지, 소중한 이야기를 정성껏 노래로 빚어드립니다.</p>
+      <div class="divider" style="background:linear-gradient(to right,var(--pink),transparent);"></div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content"><h3>사연 신청 &amp; 선금 입금</h3><p>신청서에 소중한 이야기를 적어주세요. 선금(2만원) 입금 후 제작이 시작됩니다.</p></div>
         </div>
-        <ul class="price-features">
-          <li>MP3 파일 제공</li>
-          <li>유튜브 채널 업로드, 링크 제공</li>
-          <li>매장 내 무제한 송출 가능</li>
-          <li>SNS · 홈페이지 홍보 활용 자유</li>
-          <li>저작권 100% 고객(사장님)께 귀속</li>
-          <li>제작 기간 약 7~10일</li>
-        </ul>
-        <p class="price-account">입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)</p>
-        <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(253,209,8,.15);font-size:.82rem;color:var(--cream-dim);line-height:2.2;text-align:left;">
-          🎵 로고송 <strong style="color:#fff;">3만원</strong><br>
-          🏢 기업 브랜드송 <strong style="color:#fff;">20만원</strong><br>
-          🎁 이벤트·캠페인송 <strong style="color:#fff;">20만원</strong><br>
-          <span style="font-size:.75rem; color:rgba(255,255,255,.55); margin-top:6px; display:inline-block;">※ 모든 가격은 현금가 기준입니다</span>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content"><h3>가사 작업 &amp; 작곡</h3><p>당신의 사연을 바탕으로 가사와 멜로디를 정성껏 제작합니다. 약 5~7일 소요.</p></div>
         </div>
-        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" style="display:inline-block; background:#ffffff; color:#0d1b4b; font-size:.95rem; font-weight:700; padding:14px 40px; border-radius:99px; text-decoration:none; box-shadow:0 8px 28px rgba(255,255,255,.2); transition:transform .2s, box-shadow .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📋 지금 신청하기</a>
-          <a href="https://qr.kakaopay.com/FdJ15AX1M" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#FEE500; color:#3C1E1E; font-size:.95rem; font-weight:700; padding:14px 32px; border-radius:99px; text-decoration:none; box-shadow:0 6px 20px rgba(254,229,0,.35); transition:transform .2s, box-shadow .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content"><h3>완성본 전달 &amp; 잔금 납부</h3><p>MP3 파일과 유튜브 비공개 링크로 전달해 드립니다. 잔금(3만원)은 수령 후 납부.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content"><h3>영원히 간직하는 나만의 노래</h3><p>세상에 단 하나뿐인 블레송이 완성됩니다. 해를 더할수록 더 귀한 선물이 됩니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE -->
+  <section class="sample" id="sample">
+    <div class="container">
+      <p style="font-family:'Noto Serif KR',serif; font-size:.85rem; letter-spacing:.25em; color:var(--pink-s); margin-bottom:12px;">SAMPLE SONG</p>
+      <h2 style="font-family:'Noto Serif KR',serif; font-size:clamp(1.4rem,3vw,2rem); color:#f5e8ed; font-weight:400; margin-bottom:8px;">샘플송 들어보기</h2>
+      <p style="font-size:.9rem; color:#c0a0b0; margin-bottom:36px; letter-spacing:.05em;">실제 제작된 블레송포유의 노래입니다</p>
+
+      <div class="sample-tabs">
+        <button id="tab-anniversary" class="tab-btn active" onclick="showSample('anniversary')">💍 결혼기념송</button>
+        <button id="tab-birthday" class="tab-btn" onclick="showSample('birthday')">🎂 생일축복송</button>
+      </div>
+
+      <div id="sample-anniversary">
+        <div class="sample-video-wrap">
+          <div class="sample-ratio">
+            <iframe src="https://www.youtube.com/embed/5oFkdb_81N0" title="결혼기념송" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <p class="sample-title">🎵 승선하다 — 결혼 34주년 기념송</p>
+        <p class="sample-desc">이승제 &amp; 민선미 목사님 내외분의 결혼 34주년을 축하하며<br>특별한 날의 기억을 노래에 담아 드린 작품입니다.</p>
+      </div>
+
+      <div id="sample-birthday" style="display:none;">
+        <div class="sample-video-wrap">
+          <div class="sample-ratio">
+            <iframe src="https://www.youtube.com/embed/M9zEatuMx08" title="생일축복송" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <p class="sample-title">🎵 생일 축복송 <span style="font-size:.78rem; color:#c0a0b0;">(샘플 편집본)</span></p>
+        <p class="sample-desc">시적인 가사에 태어난 날의 의미를 담아,<br>부모님이 사랑하는 자녀에게 전하는 인생의 메시지를 담았습니다.<br>해가 더할수록 의미가 깊어지는 평생의 노래입니다.</p>
+      </div>
+
+      <div style="margin-top:40px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">✉ 나만의 노래 신청하기</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showSample(type) {
+      document.getElementById('sample-anniversary').style.display = type==='anniversary' ? 'block' : 'none';
+      document.getElementById('sample-birthday').style.display   = type==='birthday'    ? 'block' : 'none';
+      document.getElementById('tab-anniversary').classList.toggle('active', type==='anniversary');
+      document.getElementById('tab-birthday').classList.toggle('active', type==='birthday');
+    }
+  </script>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-label" style="color:var(--pink);">Pricing</div>
+      <h2 class="section-title">제작 비용 안내</h2>
+      <p class="section-sub" style="margin:0 auto; color:#c0a0b0;">합리적인 가격으로, 평생 간직할 특별한 선물을.</p>
+      <div class="price-card">
+        <div class="event-badge">🎉 오픈 기념 얼리버드 특가</div>
+        <div class="price-original">정가 100,000원</div>
+        <div class="price-main">50,000<span style="font-size:1.1rem; color:#c0a0b0;">원</span></div>
+        <div class="price-unit">1곡 기준</div>
+        <div class="price-notice">⏰ 초반 한정가 · 추후 정가로 인상 예정</div>
+        <div class="price-detail">
+          <p>✦ 선금 <strong>2만원</strong> 입금 후 제작 시작</p>
+          <p>✦ 완성본 수령 후 잔금 <strong>3만원</strong> 납부</p>
+          <p>✦ 제작 기간: 신청 확인 후 <strong>5~7일</strong></p>
+          <p>✦ MP3 파일 + 유튜브 비공개 링크 제공</p>
+          <p>✦ 저작권 100% 고객님께 귀속</p>
+        </div>
+        <p class="price-note">입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 36px;">✉ 신청서 작성하기</a>
+        <div style="margin-top:12px;">
+          <a href="https://open.kakao.com/me/blessong4u" target="_blank" class="contact-btn kakao" style="display:inline-flex; align-items:center; gap:8px; padding:14px 36px; background:#FAE100; color:#3C1E1E; border-radius:50px; font-size:.95rem; font-weight:600; text-decoration:none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
-            카카오페이 결제
+            카카오 오픈채팅 문의
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact" style="position:relative;">
-    <!-- 문의 음악 장식 -->
-    <svg style="position:absolute;bottom:20px;right:20px;width:180px;height:90px;opacity:0.07;pointer-events:none;" viewBox="0 0 180 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="25" x2="180" y2="25" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="39" x2="180" y2="39" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="53" x2="180" y2="53" stroke="white" stroke-width="1"/>
-      <line x1="0" y1="67" x2="180" y2="67" stroke="white" stroke-width="1"/>
-      <ellipse cx="40" cy="58" rx="10" ry="7" fill="#fdd108" transform="rotate(-15 40 58)"/>
-      <line x1="50" y1="55" x2="50" y2="18" stroke="#fdd108" stroke-width="2.5"/>
-      <ellipse cx="85" cy="43" rx="10" ry="7" fill="white" transform="rotate(-15 85 43)"/>
-      <line x1="95" y1="40" x2="95" y2="3" stroke="white" stroke-width="2.5"/>
-      <line x1="95" y1="3" x2="120" y2="-3" stroke="white" stroke-width="2.5"/>
-      <ellipse cx="135" cy="50" rx="10" ry="7" fill="#fdd108" transform="rotate(-15 135 50)"/>
-      <line x1="145" y1="47" x2="145" y2="10" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="145" y1="10" x2="170" y2="4" stroke="#fdd108" stroke-width="2.5"/>
-      <line x1="145" y1="18" x2="170" y2="12" stroke="#fdd108" stroke-width="2.5"/>
-    </svg>
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
     <div class="container">
-      <p class="sec-tag">CONTACT</p>
-      <h2 class="sec-title">신청 및 문의</h2>
-      <p class="sec-sub" style="margin:0 auto;">궁금한 점은 카카오 오픈채팅으로 편하게 문의해 주세요.</p>
-      <div class="contact-grid">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" class="contact-card-link"><div class="contact-card"><div class="contact-icon">📋</div><h4>구글폼 신청</h4><span class="contact-card-text">✓ 신청서 작성하기</span></div></a>
-        <a href="https://open.kakao.com/me/storesong4u" target="_blank" class="contact-card-link"><div class="contact-card"><div class="contact-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="44" height="32" rx="16" ry="16" fill="#fdd108"/><path d="M8 28 L5 46 L22 34" fill="#fdd108"/></svg></div><h4>카카오 오픈채팅</h4><span class="contact-card-text">✓ 바로 문의하기</span></div></a>
-        <a href="https://www.youtube.com/@storesong4u" target="_blank" class="contact-card-link"><div class="contact-card"><div class="contact-icon">📺</div><h4>유튜브 채널</h4><span class="contact-card-text">✓ 샘플 듣기</span></div></a>
-      </div>
-      <div class="cta-btns">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbF3cOSjjuFF5YxZugEJF59tg2eNjQ3IExxd7i_bBzF2pKbw/viewform" target="_blank" class="form-btn">
-          📋 신청서 작성하기
+      <div class="section-label" style="color:var(--pink);">Contact</div>
+      <h2 class="section-title">신청 및 문의</h2>
+      <p class="section-sub" style="margin:0 auto; color:#c0a0b0;">소중한 날을 위한 노래, 지금 신청해 보세요.</p>
+      <div class="contact-links">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScpl6dhOMapmEKcE3NbaIrafm5nrjrTjCjNVNFInpT4_WY7zg/viewform" target="_blank" class="contact-btn form">✉ 신청서 작성하기</a>
+        <a href="https://open.kakao.com/me/blessong4u" target="_blank" class="contact-btn kakao">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
+          카카오 오픈채팅
         </a>
-        <a href="https://open.kakao.com/me/storesong4u" target="_blank" class="kakao-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
-          카카오 오픈채팅 문의
-        </a>
+        <a href="https://www.youtube.com/@blessong4u" target="_blank" class="contact-btn youtube">▶ 유튜브 채널</a>
       </div>
-      <p style="margin-top:48px; font-size:.82rem; color:var(--cream-dim); line-height:2;">
-        좋은 가게는 좋은 이야기를 가지고 있습니다.<br>
-        스토어송포유는 그 이야기를 고객의 기억 속에 남을 노래로 만들어 드립니다.
-      </p>
+      <div class="account-info">
+        입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)<br>
+        문의·상담은 카카오 오픈채팅으로 편하게 연락해 주세요.
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>Copyright ⓒ 스토어송포유 StoreSong4u. All Rights Reserved.</p>
-    <p style="margin-top:6px;">개인 기념일송은 <a href="https://blessong4u.github.io" target="_blank">블레송포유</a>에서 만나보세요.</p>
+    <p>Copyright ⓒ 블레송포유 Blessong4u. All Rights Reserved.</p>
+    <p style="margin-top:6px;">가게 홍보송은 <a href="https://storesong4u.github.io/">스토어송포유</a>에서 만나보세요.</p>
   </footer>
 
 </body>
 </html>
-                            
