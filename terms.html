@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>서비스 이용약관 — 스토어송포유</title>
+  <title>서비스 이용약관 — 블레송포유</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #080f2e;
-      color: #e8eaf0;
+      background: #fff8f8;
+      color: #4a1828;
       font-family: 'Noto Sans KR', sans-serif;
       font-size: 15px;
       line-height: 1.85;
@@ -20,8 +20,8 @@
 
     /* ── 헤더 ── */
     header {
-      background: linear-gradient(135deg, #060d28 0%, #0d1b4b 100%);
-      border-bottom: 1px solid rgba(253,209,8,0.18);
+      background: linear-gradient(135deg, #2e1a28 0%, #4a1828 100%);
+      border-bottom: 1px solid rgba(212,84,122,0.3);
       padding: 28px 24px 24px;
       text-align: center;
     }
@@ -29,8 +29,8 @@
       font-family: 'Noto Serif KR', serif;
       font-size: 13px;
       letter-spacing: 3px;
-      color: #fdd108;
-      opacity: 0.8;
+      color: #f0b8d0;
+      opacity: 0.9;
       margin-bottom: 10px;
     }
     header h1 {
@@ -43,229 +43,165 @@
     header .updated {
       margin-top: 10px;
       font-size: 12px;
-      color: #8fa8d4;
+      color: #c8a0b0;
     }
 
     /* ── 본문 ── */
     main {
       max-width: 720px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 40px 24px 60px;
     }
 
-    /* 전문 */
     .preamble {
-      background: rgba(253,209,8,0.05);
-      border-left: 3px solid #fdd108;
+      background: #fdf0f3;
+      border-left: 4px solid #d4547a;
       border-radius: 0 8px 8px 0;
-      padding: 20px 24px;
-      margin-bottom: 48px;
-      color: #b8c8e8;
+      padding: 16px 20px;
+      margin-bottom: 36px;
       font-size: 14px;
+      color: #7a3848;
+      line-height: 1.8;
     }
 
-    /* 조항 */
     article {
-      margin-bottom: 44px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(212,84,122,0.15);
     }
-    article h2 {
+    article:last-child { border-bottom: none; }
+
+    h2 {
       font-family: 'Noto Serif KR', serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
-      color: #fdd108;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(253,209,8,0.2);
+      color: #b03060;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    article h2 .num {
-      background: rgba(253,209,8,0.12);
-      border: 1px solid rgba(253,209,8,0.35);
-      color: #fdd108;
-      font-size: 12px;
+    .num {
+      background: linear-gradient(135deg, #d4547a, #b03060);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 99px;
       font-family: 'Noto Sans KR', sans-serif;
-      padding: 2px 8px;
-      border-radius: 20px;
-      letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
-    article p, article li {
-      color: #c8d4e8;
-      font-size: 14.5px;
-      margin-bottom: 8px;
+    p { margin-bottom: 8px; color: #4a1828; }
+    ul, ol { padding-left: 20px; color: #4a1828; }
+    ul li, ol li { margin-bottom: 6px; }
+
+    .price-table, .refund-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
     }
-    article ol, article ul {
-      padding-left: 20px;
+    .price-table th, .refund-table th {
+      background: #4a1828;
+      color: #fdf0f3;
+      padding: 10px 14px;
+      text-align: left;
     }
-    article li {
-      margin-bottom: 6px;
+    .price-table td, .refund-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(212,84,122,0.15);
+      vertical-align: top;
     }
-    article li::marker {
-      color: #fdd108;
-      opacity: 0.6;
+    .price-table tr:nth-child(even) td,
+    .refund-table tr:nth-child(even) td { background: #fdf0f3; }
+    .price-highlight { color: #b03060; font-weight: 600; }
+
+    .highlight-box {
+      background: #fdf0f3;
+      border: 1px solid rgba(212,84,122,0.25);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: #7a3848;
+      line-height: 1.8;
     }
 
-    /* 스텝 박스 */
     .step-box {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(253,209,8,0.12);
+      background: #fff;
+      border: 1px solid rgba(212,84,122,0.2);
       border-radius: 10px;
       padding: 16px 20px;
       margin-bottom: 12px;
     }
-    .step-box .step-title {
-      font-family: 'Noto Serif KR', serif;
-      color: #fff;
-      font-size: 14px;
+    .step-title {
       font-weight: 600;
-      margin-bottom: 8px;
+      color: #4a1828;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .step-badge {
-      background: rgba(253,209,8,0.15);
-      border: 1px solid rgba(253,209,8,0.4);
-      color: #fdd108;
+      background: linear-gradient(135deg, #d4547a, #b03060);
+      color: #fff;
       font-size: 11px;
-      padding: 1px 7px;
-      border-radius: 12px;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-    .step-box p, .step-box li {
-      font-size: 13.5px;
-      color: #8fa8d4;
+      padding: 3px 10px;
+      border-radius: 99px;
     }
     .step-note {
-      font-size: 12.5px !important;
-      color: #6a84a8 !important;
-      margin-top: 4px;
+      font-size: 13px;
+      color: #b07888;
+      margin-top: 8px;
     }
 
-    /* 가격 테이블 */
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
-    }
-    .price-table th {
-      background: rgba(253,209,8,0.1);
-      color: #fdd108;
-      font-weight: 500;
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid rgba(253,209,8,0.25);
-    }
-    .price-table td {
-      padding: 10px 14px;
-      color: #b8c8e8;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .price-table tr:last-child td { border-bottom: none; }
-    .price-highlight {
-      color: #fdd108 !important;
-      font-weight: 500;
-    }
-    .price-strike {
-      text-decoration: line-through;
-      color: #6a84a8 !important;
-      font-size: 12px;
-    }
-
-    /* 환불 테이블 */
-    .refund-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 13.5px;
-    }
-    .refund-table th {
-      background: rgba(253,209,8,0.08);
-      color: #fdd108;
-      font-weight: 500;
-      padding: 9px 12px;
-      border-bottom: 1px solid rgba(253,209,8,0.2);
-    }
-    .refund-table td {
-      padding: 9px 12px;
-      color: #b8c8e8;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      vertical-align: top;
-    }
-    .refund-table tr:last-child td { border-bottom: none; }
-
-    /* 강조 박스 */
-    .highlight-box {
-      background: rgba(253,209,8,0.06);
-      border: 1px solid rgba(253,209,8,0.2);
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-top: 12px;
-      font-size: 13.5px;
-      color: #b8c8e8;
-    }
-
-    /* 푸터 */
+    /* ── 푸터 ── */
     footer {
+      background: #2e1a28;
+      color: #c8a0b0;
       text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid rgba(253,209,8,0.12);
-      color: #6a84a8;
+      padding: 28px 24px;
       font-size: 13px;
     }
-    footer a {
-      color: #fdd108;
-      opacity: 0.7;
-      text-decoration: none;
-    }
-    footer a:hover { opacity: 1; }
-
-    /* 모바일 */
-    @media (max-width: 480px) {
-      header h1 { font-size: 18px; }
-      main { padding: 32px 16px 60px; }
-      .price-table, .refund-table { font-size: 12.5px; }
-      .price-table th, .price-table td,
-      .refund-table th, .refund-table td { padding: 8px 10px; }
-    }
+    footer a { color: #f0b8d0; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">storesong4u</div>
+  <div class="brand">blessong4u</div>
   <h1>서비스 이용약관</h1>
-  <div class="updated">시행일: 2026년 6월 23일</div>
+  <div class="updated">시행일: 2026년 6월 24일</div>
 </header>
 
 <main>
 
   <div class="preamble">
-    스토어송포유(이하 "제작자")가 제공하는 가게브랜드송·홍보송 제작 서비스(이하 "서비스")를 이용하시기 전에
+    블레송포유(이하 "제작자")가 제공하는 개인 맞춤 노래 제작 서비스(이하 "서비스")를 이용하시기 전에
     본 약관을 반드시 읽어주시기 바랍니다. 구글폼 주문신청서 제출 시 본 약관에 동의한 것으로 간주합니다.
   </div>
 
   <!-- 제1조 -->
   <article>
     <h2><span class="num">제 1 조</span> 서비스 제공자</h2>
-    <p>제작자: 스토어송포유</p>
+    <p>제작자: 블레송포유</p>
     <p>연락처: 010-2659-0289</p>
-    <p>카카오 오픈채팅: open.kakao.com/me/storesong4u</p>
+    <p>카카오 오픈채팅: open.kakao.com/me/blessong4u</p>
   </article>
 
   <!-- 제2조 -->
   <article>
     <h2><span class="num">제 2 조</span> 서비스 내용</h2>
-    <p>제작자는 고객이 신청한 업종·컨셉·요청 사항을 기반으로 다음 상품을 제작합니다.</p>
+    <p>제작자는 고객이 신청한 사연·컨셉·요청 사항을 기반으로 다음 상품을 제작합니다.</p>
     <ul>
-      <li>가게 브랜드송 (가게의 장점·분위기·특징을 담은 홍보 노래)</li>
-      <li>로고송</li>
-      <li>기업 브랜드송</li>
-      <li>이벤트·캠페인송</li>
+      <li>생일 축하송</li>
+      <li>기념일 축하송 (결혼기념일, 100일, 졸업, 입사, 퇴직 등)</li>
+      <li>프로포즈송</li>
+      <li>결혼 축가</li>
+      <li>사랑의 고백송</li>
+      <li>부모님 헌정곡 (환갑, 칠순, 팔순 등)</li>
+      <li>기타 특별한 날을 위한 맞춤 노래</li>
     </ul>
     <p style="margin-top:10px;">납품물: MP3 음원 파일 + MP4 가사화 영상 파일</p>
   </article>
@@ -285,28 +221,19 @@
     <h2><span class="num">제 4 조</span> 결제 조건</h2>
     <table class="price-table">
       <tr>
-        <th>상품</th>
-        <th>총액</th>
-        <th>계약금</th>
-        <th>잔금</th>
+        <th>구분</th>
+        <th>금액</th>
+        <th>납부 시기</th>
       </tr>
       <tr>
-        <td>로고송</td>
-        <td class="price-highlight">50,000원</td>
-        <td>20,000원</td>
-        <td>30,000원</td>
+        <td>계약금 (선납)</td>
+        <td class="price-highlight">20,000원</td>
+        <td>계약 성립 시</td>
       </tr>
       <tr>
-        <td>기업 브랜드송</td>
-        <td class="price-highlight">200,000원</td>
-        <td>100,000원</td>
-        <td>100,000원</td>
-      </tr>
-      <tr>
-        <td>이벤트·캠페인송</td>
-        <td class="price-highlight">200,000원</td>
-        <td>100,000원</td>
-        <td>100,000원</td>
+        <td>잔금</td>
+        <td class="price-highlight">30,000원</td>
+        <td>최종 선택 확정 후</td>
       </tr>
     </table>
     <div class="highlight-box">
@@ -338,28 +265,26 @@
     </div>
 
     <div class="step-box">
-      <div class="step-title"><span class="step-badge">STEP 3</span> 후보송 3곡 제시</div>
+      <div class="step-title"><span class="step-badge">STEP 3</span> 후보송 2곡 제시</div>
       <ul>
-        <li>확정된 가사로 3가지 스타일의 곡을 각 1곡씩 제작</li>
+        <li>확정된 가사로 2곡 제작</li>
         <li>카카오톡으로 전달 후 고객이 1곡 선택</li>
       </ul>
-      <p class="step-note">※ 이 단계에서 전달되는 영상은 선택을 위한 임시 영상본입니다.</p>
     </div>
 
     <div class="step-box">
       <div class="step-title"><span class="step-badge">STEP 4</span> 최종 1곡 선택</div>
       <ul>
-        <li>선택한 스타일로 추가 1곡 제작, 최종 2곡 중 1곡 선택</li>
+        <li>선택한 곡으로 가사화 영상 제작</li>
         <li>최종 선택 확정 후 추가 수정·재제작 불가</li>
       </ul>
-      <p class="step-note">※ 재제작을 원하실 경우 별도 제작비용이 발생합니다.</p>
     </div>
 
     <div class="step-box">
       <div class="step-title"><span class="step-badge">STEP 5</span> 잔금 납부</div>
       <ul>
         <li>최종 선택 확정 후 잔금 납부 안내</li>
-        <li>잔금 입금 확인 후 고객의 개인적·상업적 이용 권리가 확정됩니다.</li>
+        <li>잔금 입금 확인 시점부터 저작권이 고객에게 100% 귀속</li>
       </ul>
     </div>
 
@@ -367,7 +292,7 @@
       <div class="step-title"><span class="step-badge">STEP 6</span> 최종 납품</div>
       <ul>
         <li>MP3 음원 파일 + MP4 가사화 영상 파일 전송</li>
-        <li>스토어송포유 유튜브 채널 업로드 (홍보 목적)</li>
+        <li>블레송포유 유튜브 채널 업로드 (홍보 목적)</li>
       </ul>
     </div>
   </article>
@@ -376,10 +301,10 @@
   <article>
     <h2><span class="num">제 6 조</span> 저작권 및 사용권</h2>
     <ol>
-      <li>제작된 음원의 저작권은 제작자(스토어송포유)와 고객이 공동으로 보유합니다.</li>
+      <li>제작된 음원의 저작권은 제작자(블레송포유)와 고객이 공동으로 보유합니다.</li>
       <li>고객은 개인적·상업적 용도 모두 자유롭게 사용할 수 있습니다.</li>
       <li>음원을 제3자에게 양도하거나 재판매하려면 사전에 제작자의 서면 동의가 필요합니다.</li>
-      <li>스토어송포유는 제작된 음원을 유튜브 채널 및 온라인 홍보 목적으로 활용할 수 있습니다.</li>
+      <li>블레송포유는 제작된 음원을 유튜브 채널 및 온라인 홍보 목적으로 활용할 수 있습니다.</li>
     </ol>
   </article>
 
@@ -419,7 +344,7 @@
 </main>
 
 <footer>
-  <p>스토어송포유 &nbsp;|&nbsp; 010-2659-0289</p>
+  <p>블레송포유 &nbsp;|&nbsp; 010-2659-0289</p>
   <p style="margin-top:8px;"><a href="index.html">← 홈페이지로 돌아가기</a></p>
 </footer>
 
