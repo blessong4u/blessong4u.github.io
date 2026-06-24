@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서비스 이용약관 — 블레송포유</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff8f8;
+      color: #4a1828;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      min-height: 100vh;
+    }
+
+    /* ── 헤더 ── */
+    header {
+      background: linear-gradient(135deg, #2e1a28 0%, #4a1828 100%);
+      border-bottom: 1px solid rgba(212,84,122,0.3);
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    header .brand {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #f0b8d0;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    header .updated {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #c8a0b0;
+    }
+
+    /* ── 본문 ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    .preamble {
+      background: #fdf0f3;
+      border-left: 4px solid #d4547a;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 36px;
+      font-size: 14px;
+      color: #7a3848;
+      line-height: 1.8;
+    }
+
+    article {
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(212,84,122,0.15);
+    }
+    article:last-child { border-bottom: none; }
+
+    h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #b03060;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .num {
+      background: linear-gradient(135deg, #d4547a, #b03060);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-family: 'Noto Sans KR', sans-serif;
+      white-space: nowrap;
+    }
+
+    p { margin-bottom: 8px; color: #4a1828; }
+    ul, ol { padding-left: 20px; color: #4a1828; }
+    ul li, ol li { margin-bottom: 6px; }
+
+    .price-table, .refund-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    .price-table th, .refund-table th {
+      background: #4a1828;
+      color: #fdf0f3;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .price-table td, .refund-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(212,84,122,0.15);
+      vertical-align: top;
+    }
+    .price-table tr:nth-child(even) td,
+    .refund-table tr:nth-child(even) td { background: #fdf0f3; }
+    .price-highlight { color: #b03060; font-weight: 600; }
+
+    .highlight-box {
+      background: #fdf0f3;
+      border: 1px solid rgba(212,84,122,0.25);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: #7a3848;
+      line-height: 1.8;
+    }
+
+    .step-box {
+      background: #fff;
+      border: 1px solid rgba(212,84,122,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-weight: 600;
+      color: #4a1828;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .step-badge {
+      background: linear-gradient(135deg, #d4547a, #b03060);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+    .step-note {
+      font-size: 13px;
+      color: #b07888;
+      margin-top: 8px;
+    }
+
+    /* ── 푸터 ── */
+    footer {
+      background: #2e1a28;
+      color: #c8a0b0;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+    }
+    footer a { color: #f0b8d0; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">blessong4u</div>
+  <h1>서비스 이용약관</h1>
+  <div class="updated">시행일: 2026년 6월 24일</div>
+</header>
+
+<main>
+
+  <div class="preamble">
+    블레송포유(이하 "제작자")가 제공하는 개인 맞춤 노래 제작 서비스(이하 "서비스")를 이용하시기 전에
+    본 약관을 반드시 읽어주시기 바랍니다. 구글폼 주문신청서 제출 시 본 약관에 동의한 것으로 간주합니다.
+  </div>
+
+  <!-- 제1조 -->
+  <article>
+    <h2><span class="num">제 1 조</span> 서비스 제공자</h2>
+    <p>제작자: 블레송포유</p>
+    <p>연락처: 010-2659-0289</p>
+    <p>카카오 오픈채팅: open.kakao.com/me/blessong4u</p>
+  </article>
+
+  <!-- 제2조 -->
+  <article>
+    <h2><span class="num">제 2 조</span> 서비스 내용</h2>
+    <p>제작자는 고객이 신청한 사연·컨셉·요청 사항을 기반으로 다음 상품을 제작합니다.</p>
+    <ul>
+      <li>생일 축하송</li>
+      <li>기념일 축하송 (결혼기념일, 100일, 졸업, 입사, 퇴직 등)</li>
+      <li>프로포즈송</li>
+      <li>결혼 축가</li>
+      <li>사랑의 고백송</li>
+      <li>부모님 헌정곡 (환갑, 칠순, 팔순 등)</li>
+      <li>기타 특별한 날을 위한 맞춤 노래</li>
+    </ul>
+    <p style="margin-top:10px;">납품물: MP3 음원 파일 + MP4 가사화 영상 파일</p>
+  </article>
+
+  <!-- 제3조 -->
+  <article>
+    <h2><span class="num">제 3 조</span> 계약 성립</h2>
+    <ol>
+      <li>고객이 구글폼 주문신청서를 제출하고 본 약관의 동의 체크박스에 체크함으로써 계약 신청이 완료됩니다.</li>
+      <li>제작자가 계약금 입금을 확인한 시점에 계약이 최종 성립됩니다.</li>
+      <li>계약금 납부 전까지 제작은 시작되지 않습니다.</li>
+    </ol>
+  </article>
+
+  <!-- 제4조 -->
+  <article>
+    <h2><span class="num">제 4 조</span> 결제 조건</h2>
+    <table class="price-table">
+      <tr>
+        <th>구분</th>
+        <th>금액</th>
+        <th>납부 시기</th>
+      </tr>
+      <tr>
+        <td>계약금 (선납)</td>
+        <td class="price-highlight">20,000원</td>
+        <td>계약 성립 시</td>
+      </tr>
+      <tr>
+        <td>잔금</td>
+        <td class="price-highlight">30,000원</td>
+        <td>최종 선택 확정 후</td>
+      </tr>
+    </table>
+    <div class="highlight-box">
+      입금 계좌: 카카오뱅크 3333-03-0476460 (예금주: 한성운)<br/>
+      제작 기간: 계약금 입금 확인 후 약 7~10일 소요되며, 작업 예약 상황 및 각 단계의 고객 응답 시간에 따라 일정이 길어질 수 있습니다.
+    </div>
+  </article>
+
+  <!-- 제5조 -->
+  <article>
+    <h2><span class="num">제 5 조</span> 제작 프로세스</h2>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 1</span> 접수 및 계약금 납부</div>
+      <ul>
+        <li>구글폼 작성 후 제출 및 약관 동의</li>
+        <li>계약금 납부 후 제작 시작</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 2</span> 가사 확정</div>
+      <ul>
+        <li>신청 내용 기반으로 가사 작성 후 카카오톡으로 전달</li>
+        <li>수정 의견 제출 시 1회 무료 수정 진행</li>
+        <li>가사 확정 후에는 내용 변경 불가</li>
+      </ul>
+      <p class="step-note">※ 확정된 가사는 이후 모든 단계의 기준이 됩니다.</p>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 3</span> 후보송 2곡 제시</div>
+      <ul>
+        <li>확정된 가사로 2곡 제작</li>
+        <li>카카오톡으로 전달 후 고객이 1곡 선택</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 4</span> 최종 1곡 선택</div>
+      <ul>
+        <li>선택한 곡으로 가사화 영상 제작</li>
+        <li>최종 선택 확정 후 추가 수정·재제작 불가</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 5</span> 잔금 납부</div>
+      <ul>
+        <li>최종 선택 확정 후 잔금 납부 안내</li>
+        <li>잔금 입금 확인 시점부터 저작권이 고객에게 100% 귀속</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-badge">STEP 6</span> 최종 납품</div>
+      <ul>
+        <li>MP3 음원 파일 + MP4 가사화 영상 파일 전송</li>
+        <li>블레송포유 유튜브 채널 업로드 (홍보 목적)</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 제6조 -->
+  <article>
+    <h2><span class="num">제 6 조</span> 저작권 및 사용권</h2>
+    <ol>
+      <li>제작된 음원의 저작권은 제작자(블레송포유)와 고객이 공동으로 보유합니다.</li>
+      <li>고객은 개인적·상업적 용도 모두 자유롭게 사용할 수 있습니다.</li>
+      <li>음원을 제3자에게 양도하거나 재판매하려면 사전에 제작자의 서면 동의가 필요합니다.</li>
+      <li>블레송포유는 제작된 음원을 유튜브 채널 및 온라인 홍보 목적으로 활용할 수 있습니다.</li>
+    </ol>
+  </article>
+
+  <!-- 제7조 -->
+  <article>
+    <h2><span class="num">제 7 조</span> 취소 및 환불</h2>
+    <table class="refund-table">
+      <tr>
+        <th>취소 시점</th>
+        <th>환불 기준</th>
+      </tr>
+      <tr>
+        <td>STEP 1 완료 전 취소</td>
+        <td>계약금 전액 환불</td>
+      </tr>
+      <tr>
+        <td>STEP 1 완료 후 취소 (고객 귀책)</td>
+        <td>환불 불가</td>
+      </tr>
+      <tr>
+        <td>제작자 귀책 사유로 이행 불가</td>
+        <td>수령 금액 전액 환불</td>
+      </tr>
+    </table>
+  </article>
+
+  <!-- 제8조 -->
+  <article>
+    <h2><span class="num">제 8 조</span> 기타</h2>
+    <ol>
+      <li>본 약관에 명시되지 않은 사항은 상호 협의하여 결정합니다.</li>
+      <li>분쟁 발생 시 제작자 주소지 관할 법원을 제1심 법원으로 합니다.</li>
+      <li>본 약관은 사전 고지 없이 변경될 수 있으며, 변경 시 홈페이지에 공지합니다.</li>
+    </ol>
+  </article>
+
+</main>
+
+<footer>
+  <p>블레송포유 &nbsp;|&nbsp; 010-2659-0289</p>
+  <p style="margin-top:8px;"><a href="index.html">← 홈페이지로 돌아가기</a></p>
+</footer>
+
+</body>
+</html>
